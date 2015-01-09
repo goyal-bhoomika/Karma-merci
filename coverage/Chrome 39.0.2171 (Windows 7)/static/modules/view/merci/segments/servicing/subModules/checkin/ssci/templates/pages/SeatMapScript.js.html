@@ -1,0 +1,2725 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/SeatMapScript.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../prettify.css">
+
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Helvetica Neue, Helvetica,Arial;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 10em;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Consolas, Menlo, Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 14px;
+            font-size: 14px;
+            -moz-tab-size: 2;
+            -o-tab-size:  2;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { text-decoration: none; color: #000; }
+        div.coverage-summary a:visited { text-decoration: none; color: #333; }
+        div.coverage-summary a:hover { text-decoration: underline; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: url("http://yui.yahooapis.com/3.6.0/build/datatable-sort/assets/skins/sam/sort-arrow-sprite.png") no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/SeatMapScript.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">0.3% <small>(1 / 330)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 107)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 24)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">0.3% <small>(1 / 330)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages\</a> &#187; SeatMapScript.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">Aria.tplScriptDefinition({
+  $classpath: 'modules.view.merci.segments.servicing.subModules.checkin.ssci.templates.pages.SeatMapScript',
+&nbsp;
+  $dependencies: [
+&nbsp;
+    'modules.view.merci.common.utils.MerciGA'
+  ],
+&nbsp;
+  $constructor: <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.__ga = modules.view.merci.common.utils.MerciGA;</span>
+<span class="cstat-no" title="statement not covered" >    this.custAssociateInfant = {};</span>
+<span class="cstat-no" title="statement not covered" >    this.originalSeatMock = [];</span>
+<span class="cstat-no" title="statement not covered" >    this.currentSel = -1;</span>
+  },
+&nbsp;
+  $prototype: {
+    $dataReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering dataReady function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        this.pageData = this.moduleCtrl.getModuleData();</span>
+<span class="cstat-no" title="statement not covered" >        this.requestParam = this.pageData.checkIn.MSSCISeatMap_A.requestParam;</span>
+<span class="cstat-no" title="statement not covered" >        this.label = this.pageData.checkIn.MSSCISeatMap_A.labels;</span>
+<span class="cstat-no" title="statement not covered" >        this.siteParams = this.pageData.checkIn.MSSCISeatMap_A.siteParam;</span>
+<span class="cstat-no" title="statement not covered" >        this.parameters = this.pageData.checkIn.MSSCISeatMap_A.parameters;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.moduleCtrl.setHeaderInfo({</span>
+          title: this.label.Title,
+          bannerHtmlL: this.requestParam.bannerHtml,
+          homePageURL: this.siteParams.homeURL,
+          showButton: true
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.errorStrings = this.pageData.checkIn.MSSCISeatMap_A.errorStrings;</span>
+<span class="cstat-no" title="statement not covered" >        this.uiErrors = this.errorStrings;</span>
+<span class="cstat-no" title="statement not covered" >        this.data.uiErrors = this.errorStrings;</span>
+&nbsp;
+        /*
+         * decide to consider parameter if any based on page
+         * */
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.decideShowSeatToPax = true;</span>
+<span class="cstat-no" title="statement not covered" >        if (this.data.seatMapLoadingFrom == "ac") {</span>
+<span class="cstat-no" title="statement not covered" >          this.decideShowSeatToPax = false;</span>
+<span class="cstat-no" title="statement not covered" >          if (this.data.siteParameters.SITE_SSCI_DSBL_CST_BP_GEN &amp;&amp; (this.data.siteParameters.SITE_SSCI_DSBL_CST_BP_GEN.search(/false/i) != -1)) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            this.decideShowSeatToPax = true;</span>
+&nbsp;
+          }
+        }
+&nbsp;
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in dataReady function', exception);</span>
+      }
+&nbsp;
+    },
+&nbsp;
+    $viewReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering viewReady function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        this.moduleCtrl.setWarnings("");</span>
+<span class="cstat-no" title="statement not covered" >        this.moduleCtrl.setSuccess("");</span>
+&nbsp;
+        /*GOOGLE ANALYTICS*/
+<span class="cstat-no" title="statement not covered" >        var customData = {};</span>
+//        if(false){
+//          var selectedcpr = this.moduleCtrl.getSelectedCPR();
+//          var journey = this.moduleCtrl.getCPR()[selectedcpr.journey];
+//          var selectedProdForSeatMap = this.data.seatMapProdIndex;
+//          var flightInfo =selectedcpr.flighttocust[selectedProdForSeatMap];
+//          var flightID = flightInfo.product;
+//
+//          for(var customerIndex in flightInfo.customer){
+//            var custID = flightInfo.customer[customerIndex];
+//            var cust = journey[custID];
+//            if(cust.passengerTypeCode != "INF"){
+//            var passengerLegCodeSeat = custID + journey[flightID].leg[0].ID + "SST";
+//            var seat = journey.seat[passengerLegCodeSeat].row + journey.seat[passengerLegCodeSeat].column;
+//            customData['seatNumber'] = (customData['seatNumber'] == undefined) ? (seat) : (customData['seatNumber'] + "," + seat);
+//            }
+//          }
+//
+//          customData['flightNumber'] = journey[flightID].operatingAirline.companyName.companyIDAttributes.code + journey[flightID].operatingAirline.flightNumber;
+//
+//          customData['pageTitle'] = "Check-In Select Seat";
+//
+//        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.moduleCtrl.getEmbeded()) {</span>
+<span class="cstat-no" title="statement not covered" >			  jQuery("[name='ga_track_pageview']").val("Select seat");</span>
+<span class="cstat-no" title="statement not covered" >	      window.location = "sqmobile" + "://?flow=MCI/pageloaded=SeatMap";</span>
+&nbsp;
+	    } else {
+<span class="cstat-no" title="statement not covered" >	      var GADetails = this.moduleCtrl.getGADetails();</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	      this.__ga.trackPage({</span>
+	        domain: GADetails.siteGADomain,
+	        account: GADetails.siteGAAccount,
+	        gaEnabled: GADetails.siteGAEnable,
+	        page: 'Select seat',
+            GTMPage: 'Select seat',
+            data: customData
+	        });
+&nbsp;
+		}
+        /*GOOGLE ANALYTICS*/
+&nbsp;
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in viewReady function', exception);</span>
+      }
+&nbsp;
+    },
+&nbsp;
+    $displayReady: <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering displayReady function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+&nbsp;
+        /*
+         * For showing bassinet seat according to PTR 08303390
+         * */
+<span class="cstat-no" title="statement not covered" >        this.showBasinetSeatOnTopBassinetSeat();</span>
+&nbsp;
+        /*
+         * Creating global variable for live function as once bind event there is clouser issues in change seat
+         * */
+<span class="cstat-no" title="statement not covered" >        forOverrideLocal = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var sizeOfPax = jQuery('#mycarousel').find("li").length;</span>
+<span class="cstat-no" title="statement not covered" >        var __this = this;</span>
+&nbsp;
+        /*
+    	 * There are situation where seat map tpl inhibit all pax from seat map show, like if BP generated
+    	 * such situations we need to show error message.
+    	 * */
+<span class="cstat-no" title="statement not covered" >        if(sizeOfPax == 0)</span>
+        {
+<span class="cstat-no" title="statement not covered" >        	jQuery(".sectionDefaultstyle").hide();</span>
+<span class="cstat-no" title="statement not covered" >        	jQuery("#seatMapCoreErrors").addClass("displayBlock").removeClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >        	var temp=jQuery("#seatMapCoreErrors").html();</span>
+<span class="cstat-no" title="statement not covered" >        	this.moduleCtrl.displayErrors([{</span>
+                 "localizedMessage": this.label.seatmodificationNotPossible
+               }], "seatMapCoreErrors", "error");
+<span class="cstat-no" title="statement not covered" >			jQuery("#seatMapCoreErrors").append(temp);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return null;</span>
+        }
+&nbsp;
+        /*For making seat selectable for those which are not bassinet filled and occupied by seatmap*/
+<span class="cstat-no" title="statement not covered" >        for (var item in __this.custAssociateInfant) {</span>
+<span class="cstat-no" title="statement not covered" >          item = __this.custAssociateInfant[item];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          for (var ij = 0; ij &lt; sizeOfPax; ij++) {</span>
+<span class="cstat-no" title="statement not covered" >            if (item.paxIndx != ij) {</span>
+              //jQuery(".PaxSelectionScreen").eq(ij).find("[name='"+item.selectedSeat+"']").children(".bassinetFilled").length == 0
+<span class="cstat-no" title="statement not covered" >              if (jQuery(".PaxSelectionScreen").eq(ij).find("[name='" + item.selectedSeat + "']").children(".bassinetFilled").length == 0 || (__this.parameters.SITE_SSCI_BASNET_SEAT_SEL.search(/true/i) != -1 &amp;&amp; jQuery('#mycarousel').find("li").eq(ij).find("span").eq(1).attr("data-accompaniedbyinfant").search(/true/i) != -1)) {</span>
+<span class="cstat-no" title="statement not covered" >                var seat_span_class = "bassinet";</span>
+<span class="cstat-no" title="statement not covered" >                if (jQuery(".PaxSelectionScreen").eq(ij).find("[name='" + item.selectedSeat + "']").children(".bassinetFilled").length == 0) {</span>
+<span class="cstat-no" title="statement not covered" >                  var seat_span_class = "seatAvailable";</span>
+                }
+<span class="cstat-no" title="statement not covered" >                var temp = jQuery(".PaxSelectionScreen").eq(ij).find("[name='" + item.selectedSeat + "']");</span>
+<span class="cstat-no" title="statement not covered" >                var seat_name = temp.attr("name");</span>
+<span class="cstat-no" title="statement not covered" >                var seat_charecteristics = temp.attr("data-input-seatcharctics");</span>
+<span class="cstat-no" title="statement not covered" >                var seat_class = "canselect" + ij;</span>
+<span class="cstat-no" title="statement not covered" >                var seat_paxID = jQuery('#mycarousel').find("li").eq(ij).attr("data-passenger-id");</span>
+<span class="cstat-no" title="statement not covered" >                temp.replaceWith("&lt;td data-input-seatcharctics=\"" + seat_charecteristics + "\" data-selectseatinpax=\"" + seat_paxID + "\" class=\"" + seat_class + "\" name=\"" + seat_name + "\" data-seatinfo-price=\"FREE\"&gt;&lt;input type=\"button\" class=\"" + seat_span_class + "\"&gt;&lt;span&gt;&lt;/span&gt;&lt;/td&gt;");</span>
+              }
+&nbsp;
+            }
+&nbsp;
+          }
+&nbsp;
+        }
+&nbsp;
+        /*For select seat*/
+<span class="cstat-no" title="statement not covered" >        jQuery(document).off("click","[class^='canselect']");</span>
+<span class="cstat-no" title="statement not covered" >        __this.selectseat();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var paxDisplay = 1;</span>
+<span class="cstat-no" title="statement not covered" >        if (!jQuery.isUndefined(this.data.seatMapPaxToLandOnTo)) {</span>
+<span class="cstat-no" title="statement not covered" >          paxDisplay = this.data.seatMapPaxToLandOnTo;</span>
+<span class="cstat-no" title="statement not covered" >          this.data.seatMapPaxToLandOnTo = null;</span>
+        }
+&nbsp;
+&nbsp;
+        /*****For remove curosal effect for one pax********/
+<span class="cstat-no" title="statement not covered" >        if (sizeOfPax &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >          sizeOfPax = "&lt;div&gt;&lt;/div&gt;";</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          sizeOfPax = null;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        jQuery("body").css("overflow-y", "hidden");</span>
+<span class="cstat-no" title="statement not covered" >        jQuery('#mycarousel').jcarousel({</span>
+          scroll: 1,
+          start: parseInt(paxDisplay),
+          buttonNextHTML: sizeOfPax,
+          buttonPrevHTML: sizeOfPax,
+          visible: 1,
+          itemVisibleInCallback: {
+            onAfterAnimation: <span class="fstat-no" title="function not covered" >function(carousel, item, idx, state) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              jQuery("#pageWiseCommonWarnings").disposeTemplate();</span>
+<span class="cstat-no" title="statement not covered" >              jQuery("#seatErrors").disposeTemplate();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              var totalCustomers = jQuery('#mycarousel').find("li").length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              if (idx == totalCustomers) {</span>
+<span class="cstat-no" title="statement not covered" >                jQuery("#rightArrow").html(totalCustomers - parseInt(idx));</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                jQuery("#rightArrow").html(parseInt(idx) + 1);</span>
+              }
+<span class="cstat-no" title="statement not covered" >              if (idx == 1) {</span>
+<span class="cstat-no" title="statement not covered" >                jQuery("#leftArrow").html("0");</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                jQuery("#leftArrow").html(parseInt(idx) - 1);</span>
+              }
+&nbsp;
+              /*For hide seat map of all pax and show only required one*/
+<span class="cstat-no" title="statement not covered" >              jQuery(".PaxSelectionScreen").addClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >              jQuery(".PaxSelectionScreen").eq(idx - 1).removeClass("displayNone");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              jQuery("body").css("overflow-y", "");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              __this.currentSel = idx - 1;</span>
+&nbsp;
+              //For automatic change deck based on seat selected
+<span class="cstat-no" title="statement not covered" >              if (jQuery('#mycarousel').find("li").eq(__this.currentSel).children(".seatNum").text() != "Not Added") {</span>
+<span class="cstat-no" title="statement not covered" >                __this.showDeckBasedOnSelectedSeat(jQuery('#mycarousel').find("li").eq(__this.currentSel).children(".seatNum").text());</span>
+              }
+&nbsp;
+              //Occupy seat in other pax if currently showing pax selected seat already
+<span class="cstat-no" title="statement not covered" >              __this.occupySeatInOtherPax(idx);</span>
+&nbsp;
+&nbsp;
+              /*To Display Warning Messages If Warning is Given in Admin Rule For The Customer And Disabling the Proceed Button*/
+<span class="cstat-no" title="statement not covered" >              var selectedcpr = __this.moduleCtrl.getSelectedCPR();</span>
+<span class="cstat-no" title="statement not covered" >              var cpr = __this.moduleCtrl.getCPR();</span>
+<span class="cstat-no" title="statement not covered" >              var journey = cpr[selectedcpr.journey];</span>
+<span class="cstat-no" title="statement not covered" >              var selectedProdForSeatMap = __this.data.seatMapProdIndex;</span>
+<span class="cstat-no" title="statement not covered" >              var flightSel = selectedcpr.flighttocust[selectedProdForSeatMap];</span>
+<span class="cstat-no" title="statement not covered" >              var passenger = jQuery('#mycarousel').find("li").eq(__this.currentSel).attr("data-passenger-id");</span>
+<span class="cstat-no" title="statement not covered" >              var flight = flightSel.product;</span>
+<span class="cstat-no" title="statement not covered" >              __this.moduleCtrl.getWarningsForThePage("SSEL", __this, passenger, flight);</span>
+<span class="cstat-no" title="statement not covered" >              jQuery('#seatProceedButton').removeAttr("disabled");</span>
+<span class="cstat-no" title="statement not covered" >              jQuery('#seatProceedButton').removeClass("disabled");</span>
+<span class="cstat-no" title="statement not covered" >              if (journey["productDetailsBeans"][passenger + flight]["seatChangeAllowed"] == false) {</span>
+<span class="cstat-no" title="statement not covered" >                jQuery('#seatProceedButton').attr("disabled", "disabled");</span>
+<span class="cstat-no" title="statement not covered" >                jQuery('#seatProceedButton').addClass("disabled");</span>
+              }
+              /*To Display Warning Messages If Warning is Given in Admin Rule For The Customer And Disabling the Proceed Button*/
+&nbsp;
+            }
+          }
+        });
+&nbsp;
+        /*****For remove curosal pax div margin and pax********/
+<span class="cstat-no" title="statement not covered" >        if (sizeOfPax == null) {</span>
+<span class="cstat-no" title="statement not covered" >          jQuery('#wrap').children("div").css("margin", "0");</span>
+<span class="cstat-no" title="statement not covered" >          jQuery('#wrap').children("div").next().remove();</span>
+<span class="cstat-no" title="statement not covered" >          jQuery('#wrap').children("div").next().remove();</span>
+&nbsp;
+          /*Added because after curossel formation(i.e jQuery('#mycarousel').jcarousel), removing its left and right div, because of it li width issue coming*/
+<span class="cstat-no" title="statement not covered" >          var width = jQuery('#mycarousel').width() - jQuery('#mycarousel li').width();</span>
+<span class="cstat-no" title="statement not covered" >          jQuery('#mycarousel li').width((jQuery('#mycarousel li').width() + width) - 15);</span>
+        }
+&nbsp;
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in displayReady function', exception);</span>
+      }
+    },
+    /*data - data where deck list has to update
+     *
+     * mainCompartmentBestIndex - index where other main deck column list has to replace
+     * upperCompartmentBestIndex - index where other upper deck column list has to replace
+     * */
+    getindexFromWhereConstructColumnHeader: <span class="fstat-no" title="function not covered" >function(data, mainCompartmentBestIndex, upperCompartmentBestIndex) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering getindexFromWhereConstructColumnHeader function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (var compartment in data) {</span>
+<span class="cstat-no" title="statement not covered" >          compartment = data[compartment];</span>
+          /*
+           * Upper deck
+           *
+          if(compartment.compartmentDetailsCabinClassLocation == "U")
+          {
+&nbsp;
+            compartment.columnDetails=data[upperCompartmentBestIndex].columnDetails;
+&nbsp;
+          }else
+          {
+            compartment.columnDetails=data[mainCompartmentBestIndex].columnDetails;
+          }*/
+        }
+&nbsp;
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in getindexFromWhereConstructColumnHeader function', exception);</span>
+      }
+&nbsp;
+    },
+&nbsp;
+    showBasinetSeatOnTopBassinetSeat: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering showBasinetSeatOnTopBassinetSeat function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        var bsinettdNumbers = [];</span>
+<span class="cstat-no" title="statement not covered" >        var lineNumber = 0;</span>
+<span class="cstat-no" title="statement not covered" >        var totalNumberTDS = 0;</span>
+<span class="cstat-no" title="statement not covered" >      var lowerDeckhighestTDCount=0;</span>
+<span class="cstat-no" title="statement not covered" >      var higherDeckhighestTDCount=0;</span>
+<span class="cstat-no" title="statement not covered" >        var bassinetRowHasToAddBefore = "";</span>
+&nbsp;
+      /*For making exit row seat proper
+      jQuery("tr").each(function() {
+&nbsp;
+    	  	if(jQuery(this).find("td[class='exitrowright']").length != 0)
+    	  	{
+    	  		jQuery(this).children(":first-child").replaceWith(jQuery(this).find("td[class='exitrowright']")[0].outerHTML);
+    	  		jQuery(this).find("td[class='exitrowright']").remove();
+    	  	}
+    	  	if(jQuery(this).find("td[class='exitrowleft']").length != 0)
+    	  	{
+    	  		jQuery(this).children(":first-child").replaceWith(jQuery(this).find("td[class='exitrowleft']")[0].outerHTML);
+    	  		jQuery(this).find("td[class='exitrowleft']").remove();
+    	  	}
+&nbsp;
+      });
+      /*End For making exit row seat proper*/
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        jQuery("td[data-input-seatcharctics]").each(<span class="fstat-no" title="function not covered" >function(index) {</span></span>
+&nbsp;
+    	  /*check sc1.bmp*/
+<span class="cstat-no" title="statement not covered" >    	  if(jQuery(this).parent().parent().attr("name") == "lowerdeck" &amp;&amp; lowerDeckhighestTDCount &lt; jQuery(this).parent().children().length)</span>
+    	  {
+<span class="cstat-no" title="statement not covered" >    		  lowerDeckhighestTDCount=jQuery(this).parent().children().length;</span>
+    	  }else <span class="cstat-no" title="statement not covered" >if(higherDeckhighestTDCount &lt; jQuery(this).parent().children().length)</span>
+    	  {
+<span class="cstat-no" title="statement not covered" >    		  higherDeckhighestTDCount=jQuery(this).parent().children().length;</span>
+    	  }
+&nbsp;
+          /*PTR 08303390 [Medium]: SQ mob-UAT-R15:MCI - The Bassinet seat icon is not showing correctly in the seatmap*/
+<span class="cstat-no" title="statement not covered" >          if (jQuery(this).attr("data-input-seatcharctics").search(/,b,/gi) != -1) {</span>
+            /*push bassinet seatdetails to array, only bassinet seat shown to these TDS*/
+<span class="cstat-no" title="statement not covered" >            bsinettdNumbers.push(jQuery(this).index());</span>
+<span class="cstat-no" title="statement not covered" >            lineNumber = jQuery(this).parent().children().eq(0).text();</span>
+<span class="cstat-no" title="statement not covered" >            bassinetRowHasToAddBefore = jQuery(this);</span>
+&nbsp;
+            /*Find out total td count, condition to execute only when variable is 0*/
+<span class="cstat-no" title="statement not covered" >            totalNumberTDS = jQuery(this).parent().children().length;</span>
+&nbsp;
+          }
+          /*If line number where bassinet found to new one changed means bassinet row has to included*/
+<span class="cstat-no" title="statement not covered" >          var tr_td_Html = "";</span>
+<span class="cstat-no" title="statement not covered" >          if ((lineNumber != jQuery(this).parent().children().eq(0).text() || (jQuery("td[data-input-seatcharctics]").length == (index+1) &amp;&amp; jQuery(this).nextAll("[data-input-seatcharctics]").length == 0)) &amp;&amp; bsinettdNumbers.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; totalNumberTDS; i++) {</span>
+<span class="cstat-no" title="statement not covered" >              if (bsinettdNumbers.indexOf(i) != -1) {</span>
+<span class="cstat-no" title="statement not covered" >                tr_td_Html += "&lt;td class=\"bassinetReference\"&gt;&lt;/td&gt;";</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                if (bassinetRowHasToAddBefore.parent().children().eq(i).hasClass("aisle")) {</span>
+<span class="cstat-no" title="statement not covered" >                  tr_td_Html += "&lt;td class=\"aisle\"&gt;&lt;span class=\"seatNotAvailable\"&gt;&lt;/span&gt;&lt;/td&gt;";</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                  tr_td_Html += "&lt;td&gt;&lt;input type=\"submit\" class=\"noSeat\" value=\"\"&gt;&lt;/td&gt;";</span>
+                }
+&nbsp;
+              }
+&nbsp;
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            tr_td_Html = "&lt;tr&gt;" + tr_td_Html + "&lt;/tr&gt;";</span>
+<span class="cstat-no" title="statement not covered" >            bassinetRowHasToAddBefore.parent().before(tr_td_Html);</span>
+&nbsp;
+            /*resetting variables*/
+<span class="cstat-no" title="statement not covered" >            bsinettdNumbers = [];</span>
+<span class="cstat-no" title="statement not covered" >            lineNumber = 0;</span>
+<span class="cstat-no" title="statement not covered" >            bassinetRowHasToAddBefore = "";</span>
+          }
+          /*END PTR 08303390 [Medium]: SQ mob-UAT-R15:MCI - The Bassinet seat icon is not showing correctly in the seatmap*/
+&nbsp;
+        });
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in showBasinetSeatOnTopBassinetSeat function', exception);</span>
+      }
+    },
+&nbsp;
+    setCustAssociateInfant: <span class="fstat-no" title="function not covered" >function(custID, seat, accompaniedByInfant, paxPosition, fligthid) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering setCustAssociateInfant function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        this.custAssociateInfant[custID] = {</span>
+          "initseat": seat,
+          "accompaniedByInfant": accompaniedByInfant,
+          "selectedSeat": seat,
+          "previousSeat": seat,
+          "paxIndx": parseInt(paxPosition) - 1,
+          "flightid": fligthid,
+          "NumToDispOnSelSeat": paxPosition
+        };
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in setCustAssociateInfant function', exception);</span>
+      }
+&nbsp;
+    },
+&nbsp;
+    // Function to chk whether it is exit row seat
+    isExitSeat: <span class="fstat-no" title="function not covered" >function(charArray) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering isExitSeat function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        var test = jQuery.inArray("E", charArray)</span>
+<span class="cstat-no" title="statement not covered" >        if (test == -1) {</span>
+<span class="cstat-no" title="statement not covered" >          return false;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          return true;</span>
+        }
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in isExitSeat function', exception);</span>
+      }
+    },
+&nbsp;
+    // Function to chk whether it is isChargebleSeat seat
+    isChargebleSeat: <span class="fstat-no" title="function not covered" >function(charArray) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMap::Entering isChargebleSeat function');</span>
+<span class="cstat-no" title="statement not covered" >      var test = jQuery.inArray("CH", charArray)</span>
+<span class="cstat-no" title="statement not covered" >      if (test == -1) {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        return true;</span>
+      }
+    },
+&nbsp;
+&nbsp;
+    // Function to chk whether it is basinet seat
+    isBasinetSeat: <span class="fstat-no" title="function not covered" >function(charArray) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering isChargebleSeat function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        var test = jQuery.inArray("B", charArray)</span>
+<span class="cstat-no" title="statement not covered" >        if (test == -1) {</span>
+<span class="cstat-no" title="statement not covered" >          return false;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          return true;</span>
+        }
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in isChargebleSeat function', exception);</span>
+      }
+    },
+&nbsp;
+    /*
+     * in a scenario where there r 3 pax
+     * as 3 diff seat map get generate,
+     * 1pax 1A, 2pax 2A, 2pax 3A
+     * if we are currently at 2pax in currosel then seat 2A is hilighted autoautomatically
+     *
+     * IN THIS CASE TO SHOW 1A and 3A in 2 pax seat map we are using this function
+     * */
+    occupySeatInOtherPax: <span class="fstat-no" title="function not covered" >function(idx) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering occupySeatInOtherPax function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        var __this = this;</span>
+        /*
+        __this.originalSeatMock holds seat which are got hilighted in next loop, and when move to new pax in currosel i.e in this case 1 or 3
+&nbsp;
+        it makes in pax 2 seat map seat to initial stage
+&nbsp;
+         */
+<span class="cstat-no" title="statement not covered" >        for (var item in __this.originalSeatMock) {</span>
+<span class="cstat-no" title="statement not covered" >          var itemSrc = __this.originalSeatMock.indexOfPrevpaxViewed();</span>
+<span class="cstat-no" title="statement not covered" >          item = __this.originalSeatMock[item];</span>
+<span class="cstat-no" title="statement not covered" >          if (typeof item != "function") {</span>
+<span class="cstat-no" title="statement not covered" >            jQuery(".PaxSelectionScreen").eq(parseInt(itemSrc) - 1).find("[name='" + item.split("~~~")[1] + "']").replaceWith(item.split("~~~")[0]);</span>
+          }
+&nbsp;
+        }
+<span class="cstat-no" title="statement not covered" >        __this.originalSeatMock = [];</span>
+&nbsp;
+        /*this loop doing  SHOW 1A and 3A in 2 pax seat map*/
+<span class="cstat-no" title="statement not covered" >        for (var item in __this.custAssociateInfant) {</span>
+<span class="cstat-no" title="statement not covered" >          item = __this.custAssociateInfant[item];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (item.NumToDispOnSelSeat != idx &amp;&amp; item.selectedSeat != "Not Added") {</span>
+&nbsp;
+            //For preserve original seat constructed
+<span class="cstat-no" title="statement not covered" >            __this.originalSeatMock[item.NumToDispOnSelSeat] = jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + item.selectedSeat + "']")[0].outerHTML + "~~~" + item.selectedSeat;</span>
+<span class="cstat-no" title="statement not covered" >            __this.originalSeatMock.indexOfPrevpaxViewed = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >              return idx</span>
+            };
+&nbsp;
+            //For making seat un-selectable
+<span class="cstat-no" title="statement not covered" >            jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + item.selectedSeat + "']").replaceWith("&lt;td name=\"" + item.selectedSeat + "\" data-seatinfo-price=\"FREE\" class=\"occupied selected\"&gt;&lt;span class=\"seatNotAvailable\"&gt;" + item.NumToDispOnSelSeat + "&lt;/span&gt;&lt;/td&gt;");</span>
+&nbsp;
+          }
+        }
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in occupySeatInOtherPax function', exception);</span>
+      }
+&nbsp;
+    },
+&nbsp;
+    revertSeat: <span class="fstat-no" title="function not covered" >function(evt) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering revertSeat function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+&nbsp;
+        /*
+         * Refreah page to revert seat,
+         * for loop below is unreachable hence no prob, it is kept for alternate insted refresh but very tuff maintain
+         * */
+<span class="cstat-no" title="statement not covered" >        this.data.seatMapPaxToLandOnTo = this.currentSel + 1;</span>
+<span class="cstat-no" title="statement not covered" >        this.$refresh();</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (var item in this.custAssociateInfant) {</span>
+<span class="cstat-no" title="statement not covered" >          item = this.custAssociateInfant[item];</span>
+          /*if(item.initseat != "Not Added")
+        {*/
+          /*For reverting current selection*/
+<span class="cstat-no" title="statement not covered" >          jQuery(".PaxSelectionScreen").eq(item.paxIndx).find("[name='" + item.selectedSeat + "']").removeClass("is-current");</span>
+<span class="cstat-no" title="statement not covered" >          jQuery(".PaxSelectionScreen").eq(item.paxIndx).find("[name='" + item.selectedSeat + "']").children("input").removeClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >          jQuery(".PaxSelectionScreen").eq(item.paxIndx).find("[name='" + item.selectedSeat + "']").children("span").text("");</span>
+&nbsp;
+          /*For selecting initial one*/
+<span class="cstat-no" title="statement not covered" >          jQuery(".PaxSelectionScreen").eq(item.paxIndx).find("[name='" + item.initseat + "']").addClass("is-current");</span>
+<span class="cstat-no" title="statement not covered" >          jQuery(".PaxSelectionScreen").eq(item.paxIndx).find("[name='" + item.initseat + "']").children("input").addClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >          jQuery(".PaxSelectionScreen").eq(item.paxIndx).find("[name='" + item.initseat + "']").children("span").text(parseInt(item.paxIndx) + 1);</span>
+          //}
+&nbsp;
+          /*for set previous and selected one*/
+<span class="cstat-no" title="statement not covered" >          item.selectedSeat = item.initseat;</span>
+<span class="cstat-no" title="statement not covered" >          item.previousSeat = item.initseat;</span>
+&nbsp;
+          /*Seat corousel for seleccted seat*/
+<span class="cstat-no" title="statement not covered" >          jQuery('#mycarousel').find("li").eq(item.paxIndx).children(".seatNum").text(item.initseat);</span>
+&nbsp;
+          /*for showing valid Deck*/
+<span class="cstat-no" title="statement not covered" >          if (item.initseat != "Not Added") {</span>
+<span class="cstat-no" title="statement not covered" >            this.showDeckBasedOnSelectedSeat(item.initseat, item.paxIndx);</span>
+          }
+&nbsp;
+        }
+&nbsp;
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in revertSeat function', exception);</span>
+      }
+    },
+&nbsp;
+    selectseat: <span class="fstat-no" title="function not covered" >function(evt) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering selectseat function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+        /*For seatmap selection*/
+<span class="cstat-no" title="statement not covered" >        var __this = this;</span>
+<span class="cstat-no" title="statement not covered" >        jQuery(document).on("click","[class^='canselect']", <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >          var __this = forOverrideLocal;</span>
+&nbsp;
+&nbsp;
+          /*Not Allowed Customers*/
+<span class="cstat-no" title="statement not covered" >          var selectedProdForSeatMap = __this.data.seatMapProdIndex;</span>
+<span class="cstat-no" title="statement not covered" >          var selectedCPR = __this.moduleCtrl.getSelectedCPR();</span>
+<span class="cstat-no" title="statement not covered" >          var flightSel = selectedCPR.flighttocust[selectedProdForSeatMap].product;</span>
+<span class="cstat-no" title="statement not covered" >          var paxSel = jQuery(this).attr('data-selectseatinpax');</span>
+<span class="cstat-no" title="statement not covered" >          var cpr = __this.moduleCtrl.getCPR();</span>
+<span class="cstat-no" title="statement not covered" >          var journey = cpr[selectedCPR.journey];</span>
+          /*Not Allowed Customers*/
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          var prev_seat = __this.custAssociateInfant[jQuery(this).attr('data-selectseatinpax')].previousSeat;</span>
+<span class="cstat-no" title="statement not covered" >          if (jQuery(this).children().length == 2 &amp;&amp; prev_seat != jQuery(this).attr('name') &amp;&amp; (journey["productDetailsBeans"][paxSel + flightSel]["seatChangeAllowed"] == true)) {</span>
+            /*For  previous pax*/
+<span class="cstat-no" title="statement not covered" >            if (prev_seat != "Not Added") {</span>
+<span class="cstat-no" title="statement not covered" >              if (jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").hasClass("cantBeSelectedHereAfter")) {</span>
+<span class="cstat-no" title="statement not covered" >                jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").attr("class", "");</span>
+<span class="cstat-no" title="statement not covered" >                jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").find("span").text("");</span>
+<span class="cstat-no" title="statement not covered" >                var spanClass = jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").find("span").attr("class");</span>
+<span class="cstat-no" title="statement not covered" >                jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").find("span").attr("class", "");</span>
+<span class="cstat-no" title="statement not covered" >                jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").find("span").attr("class", spanClass.split("_")[0]);</span>
+&nbsp;
+                /*Apply occupied class to td if seat occpied seat to show*/
+<span class="cstat-no" title="statement not covered" >                if (spanClass.split("_")[0] == "seatNotAvailable") {</span>
+<span class="cstat-no" title="statement not covered" >                  jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").attr("class", "occupied");</span>
+                }
+              } else {
+<span class="cstat-no" title="statement not covered" >                jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").removeClass("is-current");</span>
+<span class="cstat-no" title="statement not covered" >                jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").children("input").removeClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >                jQuery(".PaxSelectionScreen").eq(__this.currentSel).find("[name='" + prev_seat + "']").children("span").text("");</span>
+              }
+&nbsp;
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            __this.custAssociateInfant[jQuery(this).attr('data-selectseatinpax')].previousSeat = jQuery(this).attr('name');</span>
+&nbsp;
+            /*For setting current pax*/
+<span class="cstat-no" title="statement not covered" >            jQuery(this).addClass("is-current");</span>
+<span class="cstat-no" title="statement not covered" >            jQuery(this).children("input").addClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >            jQuery(this).children("span").text(parseInt(__this.custAssociateInfant[jQuery(this).attr('data-selectseatinpax')].paxIndx) + 1);</span>
+<span class="cstat-no" title="statement not covered" >            __this.custAssociateInfant[jQuery(this).attr('data-selectseatinpax')].selectedSeat = jQuery(this).attr('name');</span>
+&nbsp;
+            /*Seat corousel for seleccted seat*/
+<span class="cstat-no" title="statement not covered" >            jQuery('#mycarousel').find("li").eq(__this.currentSel).children(".seatNum").text(jQuery(this).attr('name'));</span>
+          }
+&nbsp;
+        });
+&nbsp;
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in selectseat function', exception);</span>
+      }
+&nbsp;
+    },
+&nbsp;
+    showDeckBasedOnSelectedSeat: <span class="fstat-no" title="function not covered" >function(seat, index) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering showDeckBasedOnSelectedSeat function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        if (jQuery.isUndefined(index)) {</span>
+<span class="cstat-no" title="statement not covered" >          index = this.currentSel;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        var flag = jQuery(".PaxSelectionScreen").eq(index).find("[name='" + seat + "']").parentsUntil('tbody').parent().attr("name");</span>
+<span class="cstat-no" title="statement not covered" >        if (flag == "lowerdeck") {</span>
+<span class="cstat-no" title="statement not covered" >          this.onViewLowerDeck("", index);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (flag == "upperdeck") {</span>
+<span class="cstat-no" title="statement not covered" >          this.onViewUpperDeck("", index);</span>
+        }
+&nbsp;
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in showDeckBasedOnSelectedSeat function', exception);</span>
+      }
+&nbsp;
+    },
+&nbsp;
+    // Function used to save the selected seats for passengers
+    onSaveSeat: <span class="fstat-no" title="function not covered" >function(evt) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      evt.preventDefault();</span>
+&nbsp;
+      /*From which page seatmap loaded*/
+<span class="cstat-no" title="statement not covered" >      var flow = "tripsummary";</span>
+<span class="cstat-no" title="statement not covered" >      if (this.data.seatMapLoadingFrom == "ac") {</span>
+<span class="cstat-no" title="statement not covered" >        flow = "checkin-conf";</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering onSaveSeat function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        var errors = [];</span>
+<span class="cstat-no" title="statement not covered" >        var input = [];</span>
+<span class="cstat-no" title="statement not covered" >        var success = [];</span>
+<span class="cstat-no" title="statement not covered" >        var selectedCPR = this.moduleCtrl.getSelectedCPR();</span>
+<span class="cstat-no" title="statement not covered" >        var cpr = this.moduleCtrl.getCPR();</span>
+<span class="cstat-no" title="statement not covered" >        var journey = cpr[selectedCPR.journey];</span>
+        /*IATCI*/
+        //SeatMapProdIndex denotes the Fligth Id in SelecetedCPR
+<span class="cstat-no" title="statement not covered" >        this.data.IATCIinput[selectedCPR.flighttocust[this.data.seatMapProdIndex].product] = [];</span>
+        /*IATCI*/
+<span class="cstat-no" title="statement not covered" >        for (var item in this.custAssociateInfant) {</span>
+<span class="cstat-no" title="statement not covered" >          var paxid = item;</span>
+<span class="cstat-no" title="statement not covered" >          item = this.custAssociateInfant[item];</span>
+<span class="cstat-no" title="statement not covered" >          var legids = this.moduleCtrl.getLegIdBasedByFlightId(item.flightid);</span>
+&nbsp;
+          //Only Allowed Passenger to Be Shown
+<span class="cstat-no" title="statement not covered" >          if (journey["productDetailsBeans"][paxid + item.flightid]["seatChangeAllowed"]) {</span>
+<span class="cstat-no" title="statement not covered" >            if (item.selectedSeat == "Not Added") {</span>
+<span class="cstat-no" title="statement not covered" >              errors.push({</span>
+                "localizedMessage": this.errorStrings[25000012].localizedMessage,
+                "code": this.errorStrings[25000012].errorid
+              });
+<span class="cstat-no" title="statement not covered" >              jQuery('#mycarousel').jcarousel('scroll', item.NumToDispOnSelSeat, false);</span>
+<span class="cstat-no" title="statement not covered" >              this.moduleCtrl.displayErrors(errors, "seatErrors", "error");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              return false;</span>
+            }
+&nbsp;
+            /*IATCI Flight Check For Trip summary page request*/
+<span class="cstat-no" title="statement not covered" >            if (!jQuery.isUndefined(this.data.dcsSeatIATCIforProduct[item.flightid]) &amp;&amp; !jQuery.isUndefined(this.data.dcsSeatIATCIforProduct[item.flightid][paxid])) {</span>
+<span class="cstat-no" title="statement not covered" >              for (var i in legids) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (this.data.dcsSeatIATCIforProduct[item.flightid][paxid] != item.selectedSeat) {</span>
+<span class="cstat-no" title="statement not covered" >                  this.data.IATCIinput[item.flightid].push({</span>
+                    "legid": legids[i],
+                    "paxid": paxid,
+                    "seat": item.selectedSeat,
+                    "service": "change_seat",
+                    flow: "IATCISeatSave"
+                  });
+                }
+<span class="cstat-no" title="statement not covered" >                var referenceIDLegPassengerLegID = legids[i];</span>
+<span class="cstat-no" title="statement not covered" >                var referenceIDLegPassengerPassengerID = paxid;</span>
+<span class="cstat-no" title="statement not covered" >                var constraint = referenceIDLegPassengerPassengerID + referenceIDLegPassengerLegID + "SST";</span>
+<span class="cstat-no" title="statement not covered" >                if (cpr[selectedCPR.journey].seat[constraint]) {</span>
+<span class="cstat-no" title="statement not covered" >                  cpr[selectedCPR.journey].seat[constraint].row = item.selectedSeat.substring(0, (item.selectedSeat.length - 1));</span>
+<span class="cstat-no" title="statement not covered" >                  cpr[selectedCPR.journey].seat[constraint].column = item.selectedSeat.substring(item.selectedSeat.length - 1);</span>
+<span class="cstat-no" title="statement not covered" >                  cpr[selectedCPR.journey].seat[constraint].status.code = "A";</span>
+<span class="cstat-no" title="statement not covered" >                  cpr[selectedCPR.journey].seat[constraint].status.listCode = "SST";</span>
+<span class="cstat-no" title="statement not covered" >                  cpr[selectedCPR.journey].seat[constraint].status.owner = "SSCI";</span>
+                }
+              }
+<span class="cstat-no" title="statement not covered" >              this.moduleCtrl.setCPR(cpr);</span>
+            } /*Normal Flow*/
+            else <span class="cstat-no" title="statement not covered" >if ((item.initseat != item.selectedSeat)) {</span>
+<span class="cstat-no" title="statement not covered" >              for (var i in legids) {</span>
+<span class="cstat-no" title="statement not covered" >                input.push({</span>
+                  "legid": legids[i],
+                  "paxid": paxid,
+                  "seat": item.selectedSeat,
+                  "service": "change_seat",
+                  flow: flow
+                });
+              }
+            }
+          }
+        } /*Save Seat Function takes care If input.length == 0 (In case no NON IATCI Flights)*/
+<span class="cstat-no" title="statement not covered" >        if (input.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >          this.moduleCtrl.saveseat(input);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          success.push(this.data.uiErrors[25000067]); </span>//JSONData.uiErrors[21300051].localizedMessage
+<span class="cstat-no" title="statement not covered" >          this.moduleCtrl.setSuccess(success);</span>
+<span class="cstat-no" title="statement not covered" >          this.moduleCtrl.onBackClick();</span>
+        }
+&nbsp;
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in onSaveSeat function', exception);</span>
+      }
+&nbsp;
+    },
+&nbsp;
+    // function used to get int value
+    getIntValue: <span class="fstat-no" title="function not covered" >function(stringValue, radix) {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering getIntValue function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        var ValInInteger = 0;</span>
+<span class="cstat-no" title="statement not covered" >        if (arguments.length == 1) {</span>
+<span class="cstat-no" title="statement not covered" >          ValInInteger = parseInt(stringValue);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          ValInInteger = parseInt(stringValue, radix);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return ValInInteger;</span>
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in getIntValue function', exception);</span>
+      }
+    },
+&nbsp;
+    // function used to view upper deck
+    onViewUpperDeck: <span class="fstat-no" title="function not covered" >function(evt, index) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        this.$logInfo('SeatMapScript::Entering onViewUpperDeck function');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (jQuery.isUndefined(index)) {</span>
+<span class="cstat-no" title="statement not covered" >          index = this.currentSel;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        jQuery(".PaxSelectionScreen").eq(index).find("[name='lowerdeck']").addClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >        jQuery(".PaxSelectionScreen").eq(index).find("[name='upperdeck']").removeClass("displayNone");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        jQuery(".PaxSelectionScreen").eq(index).find("[name='lowerdeckheader']").addClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >        jQuery(".PaxSelectionScreen").eq(index).find("[name='upperdeckheader']").removeClass("displayNone");</span>
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in onViewUpperDeck function', exception);</span>
+      }
+    },
+&nbsp;
+    // function used to view lower deck
+    onViewLowerDeck: <span class="fstat-no" title="function not covered" >function(evt, index) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        this.$logInfo('SeatMapScript::Entering onViewLowerDeck function');</span>
+<span class="cstat-no" title="statement not covered" >        if (jQuery.isUndefined(index)) {</span>
+<span class="cstat-no" title="statement not covered" >          index = this.currentSel;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        jQuery(".PaxSelectionScreen").eq(index).find("[name='lowerdeck']").removeClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >        jQuery(".PaxSelectionScreen").eq(index).find("[name='upperdeck']").addClass("displayNone");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        jQuery(".PaxSelectionScreen").eq(index).find("[name='lowerdeckheader']").removeClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >        jQuery(".PaxSelectionScreen").eq(index).find("[name='upperdeckheader']").addClass("displayNone");</span>
+&nbsp;
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in onViewLowerDeck function', exception);</span>
+      }
+    },
+&nbsp;
+    /**
+     * onModuleEvent : Module event handler called when a module event is raised.
+     */
+    onModuleEvent: <span class="fstat-no" title="function not covered" >function(evt) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        this.$logInfo('SeatMapScript::Entering onModuleEvent function');</span>
+<span class="cstat-no" title="statement not covered" >        switch (evt.name) {</span>
+          case "server.error":
+<span class="cstat-no" title="statement not covered" >            modules.view.merci.common.utils.MCommonScript.hideMskOverlay();</span>
+<span class="cstat-no" title="statement not covered" >            var errors = [];</span>
+<span class="cstat-no" title="statement not covered" >            errors.push({</span>
+              "localizedMessage": this.uiErrors[21400069].localizedMessage,
+              "code": this.uiErrors[21400069].errorid
+            });
+<span class="cstat-no" title="statement not covered" >            this.moduleCtrl.displayErrors(errors, "seatErrors", "error");</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+        }
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in onModuleEvent function', exception);</span>
+      }
+    },
+&nbsp;
+    onBackClick: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      this.$logInfo('SeatMapScript::Entering onBackClick function');</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        this.moduleCtrl.onBackClick();</span>
+      } catch (exception) {
+<span class="cstat-no" title="statement not covered" >        this.$logError('SeatMapScript::An error occured in onBackClick function', exception);</span>
+      }
+    }
+  }
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 08 2015 18:25:50 GMT+0530 (India Standard Time)</div>
+</div>
+
+<script src="../prettify.js"></script>
+
+<script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+<script>
+
+    YUI().use('datatable', function (Y) {
+
+        var formatters = {
+          pct: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              try {
+                  return o.value.toFixed(2) + '%';
+              } catch (ex) { return o.value + '%'; }
+          },
+          html: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.record.get(o.column.key + '_html');
+          }
+        },
+          defaultFormatter = function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.value;
+          };
+
+        function getColumns(theadNode) {
+            var colNodes = theadNode.all('tr th'),
+                cols = [],
+                col;
+            colNodes.each(function (colNode) {
+                col = {
+                    key: colNode.getAttribute('data-col'),
+                    label: colNode.get('innerHTML') || ' ',
+                    sortable: !colNode.getAttribute('data-nosort'),
+                    className: colNode.getAttribute('class'),
+                    type: colNode.getAttribute('data-type'),
+                    allowHTML: colNode.getAttribute('data-html') === 'true' || colNode.getAttribute('data-fmt') === 'html'
+                };
+                col.formatter = formatters[colNode.getAttribute('data-fmt')] || defaultFormatter;
+                cols.push(col);
+            });
+            return cols;
+        }
+
+        function getRowData(trNode, cols) {
+            var tdNodes = trNode.all('td'),
+                    i,
+                    row = { classes: {} },
+                    node,
+                    name;
+            for (i = 0; i < cols.length; i += 1) {
+                name = cols[i].key;
+                node = tdNodes.item(i);
+                row[name] = node.getAttribute('data-value') || node.get('innerHTML');
+                row[name + '_html'] = node.get('innerHTML');
+                row.classes[name] = node.getAttribute('class');
+                //Y.log('Name: ' + name + '; Value: ' + row[name]);
+                if (cols[i].type === 'number') { row[name] = row[name] * 1; }
+            }
+            //Y.log(row);
+            return row;
+        }
+
+        function getData(tbodyNode, cols) {
+            var data = [];
+            tbodyNode.all('tr').each(function (trNode) {
+                data.push(getRowData(trNode, cols));
+            });
+            return data;
+        }
+
+        function replaceTable(node) {
+            if (!node) { return; }
+            var cols = getColumns(node.one('thead')),
+                data = getData(node.one('tbody'), cols),
+                table,
+                parent = node.get('parentNode');
+
+            table = new Y.DataTable({
+                columns: cols,
+                data: data,
+                sortBy: 'file'
+            });
+            parent.set('innerHTML', '');
+            table.render(parent);
+        }
+
+        Y.on('domready', function () {
+            replaceTable(Y.one('div.coverage-summary table'));
+            if (typeof prettyPrint === 'function') {
+                prettyPrint();
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,2017 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/BoardingPassScript.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../prettify.css">
+
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Helvetica Neue, Helvetica,Arial;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 10em;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Consolas, Menlo, Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 14px;
+            font-size: 14px;
+            -moz-tab-size: 2;
+            -o-tab-size:  2;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { text-decoration: none; color: #000; }
+        div.coverage-summary a:visited { text-decoration: none; color: #333; }
+        div.coverage-summary a:hover { text-decoration: underline; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: url("http://yui.yahooapis.com/3.6.0/build/datatable-sort/assets/skins/sam/sort-arrow-sprite.png") no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/BoardingPassScript.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">0.38% <small>(1 / 260)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 91)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">0.38% <small>(1 / 260)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages\</a> &#187; BoardingPassScript.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">Aria.tplScriptDefinition({
+   $classpath: 'modules.view.merci.segments.servicing.subModules.checkin.ssci.templates.pages.BoardingPassScript',
+&nbsp;
+   $dependencies: [
+      'modules.view.merci.common.utils.MerciGA',
+      'modules.view.merci.common.utils.MCommonScript',
+      'modules.view.merci.common.utils.StringBufferImpl'
+   ],
+&nbsp;
+   $constructor: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >	  this.__ga = modules.view.merci.common.utils.MerciGA;</span>
+<span class="cstat-no" title="statement not covered" >      this.utils = modules.view.merci.common.utils.MCommonScript;</span>
+<span class="cstat-no" title="statement not covered" >      this.buffer = modules.view.merci.common.utils.StringBufferImpl;</span>
+   },
+&nbsp;
+   $prototype: {
+      $dataReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >         try {</span>
+<span class="cstat-no" title="statement not covered" >            this.$logInfo('BoardingPassScript: Entering dataReady function ');</span>
+<span class="cstat-no" title="statement not covered" >            modules.view.merci.common.utils.MCommonScript.hideMskOverlay();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var pageId = "MSSCIBoardingPassesList_A";</span>
+<span class="cstat-no" title="statement not covered" >            if (!jQuery.isUndefined(jsonResponse.data.checkIn.MSSCIBoardingPass_A)) {</span>
+<span class="cstat-no" title="statement not covered" >               pageId = "MSSCIBoardingPass_A";</span>
+            }
+<span class="cstat-no" title="statement not covered" >            var BoardingPassesListRespDtls = jsonResponse.data.checkIn[pageId].requestParam.BPResponseDetails;</span>
+<span class="cstat-no" title="statement not covered" >            this.requestParam = jsonResponse.data.checkIn[pageId].requestParam;</span>
+<span class="cstat-no" title="statement not covered" >            this.label = jsonResponse.data.checkIn[pageId].labels;</span>
+<span class="cstat-no" title="statement not covered" >            this.siteParams = jsonResponse.data.checkIn[pageId].siteParam;</span>
+<span class="cstat-no" title="statement not covered" >            this.parameters = jsonResponse.data.checkIn[pageId].parameters;</span>
+<span class="cstat-no" title="statement not covered" >            this.errorStrings = jsonResponse.data.checkIn[pageId].errorStrings;</span>
+            /*for Change title incase comes from bp list page*/
+<span class="cstat-no" title="statement not covered" >            var title = this.label.Title;</span>
+<span class="cstat-no" title="statement not covered" >            if (!jQuery.isUndefined(jsonResponse.data.checkIn["MSSCIBoardingPassesList_A"])) {</span>
+<span class="cstat-no" title="statement not covered" >               title = this.label.BpTitle;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            this.moduleCtrl.setHeaderInfo({</span>
+               title: this.label.Title,
+               bannerHtmlL: this.requestParam.bannerHtml,
+               homePageURL: this.siteParams.homeURL,
+               showButton: true
+            });
+&nbsp;
+            /*Display of Share Button*/
+<span class="cstat-no" title="statement not covered" >            if (this.parameters.SITE_MC_ENBL_MBP_SHARE) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >               this.confPageShareContentTitle = this.label.tx_merci_text_sm_title;</span>
+<span class="cstat-no" title="statement not covered" >               this.confPageShareContentCaption = this.label.tx_merci_text_sm_caption;</span>
+<span class="cstat-no" title="statement not covered" >               this.confPageShareImageURL = this.label.tx_merci_text_sm_airlines_image_url;</span>
+<span class="cstat-no" title="statement not covered" >               this.confPageShareContentDesc = this.getShareData();</span>
+<span class="cstat-no" title="statement not covered" >               this.confPageShareContentLink = this.label.tx_merci_text_sm_airlines_link;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >               var headerButton = {};</span>
+<span class="cstat-no" title="statement not covered" >               var arr = [];</span>
+<span class="cstat-no" title="statement not covered" >               var arrShare = [];</span>
+<span class="cstat-no" title="statement not covered" >               headerButton.scope = this;</span>
+<span class="cstat-no" title="statement not covered" >               var _this = this;</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >               if (this.utils.isRequestFromApps() == true) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowSocialMedia.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arr.push("shareButton");</span>
+                  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowFacebook.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["FACEBOOK", "fb", "icon-facebook"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowGooglePlus.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["GOOGLEPLUS", "gp", "icon-google-plus"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowLinkedIn.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["LINKEDIN", "li", "icon-linkedin"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowTwitter.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["TWITTER", "tw", "icon-twitter"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowEmail.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["EMAIL", "mail", "icon-email"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowSMS.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["SMS", "sms", "icon-sms"]);</span>
+                  };
+<span class="cstat-no" title="statement not covered" >                  headerButton.shreButton = arrShare;</span>
+<span class="cstat-no" title="statement not covered" >                  headerButton.button = arr;</span>
+<span class="cstat-no" title="statement not covered" >                  this.moduleCtrl.setHeaderInfo({</span>
+                     title: this.label.Title,
+                     bannerHtmlL: this.requestParam.bannerHtml,
+                     homePageURL: this.siteParams.homeURL,
+                     showButton: true,
+                     headerButton: headerButton
+                  });
+               } else {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowSocialMedia.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arr.push("shareButton");</span>
+                  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowFacebook.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["FACEBOOK", "fb", "icon-facebook"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowGooglePlus.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["GOOGLEPLUS", "gp", "icon-google-plus"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowLinkedIn.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["LINKEDIN", "li", "icon-linkedin"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowTwitter.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["TWITTER", "tw", "icon-twitter"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowEmail.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["EMAIL", "mail", "icon-email"]);</span>
+                  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  if (this.parameters.siteAllowSMS.toLowerCase() == "true") {</span>
+<span class="cstat-no" title="statement not covered" >                     arrShare.push(["SMS", "sms", "icon-sms"]);</span>
+                  };
+<span class="cstat-no" title="statement not covered" >                  var googleAPIKey = this.parameters.siteGooglePlusAPIKey;</span>
+<span class="cstat-no" title="statement not covered" >                  var baseparams = modules.view.merci.common.utils.URLManager.getBaseParams();</span>
+<span class="cstat-no" title="statement not covered" >                  if (window.location.protocol == 'http:') {</span>
+<span class="cstat-no" title="statement not covered" >                     googleAPIKey = this.parameters.siteGooglePlusSecretKey;</span>
+                  }
+<span class="cstat-no" title="statement not covered" >                  headerButton.shreButton = arrShare;</span>
+<span class="cstat-no" title="statement not covered" >                  headerButton.shareData = {</span>
+                     title: _this.confPageShareContentTitle,
+                     caption: _this.confPageShareContentCaption,
+                     link: _this.confPageShareContentLink,
+                     description: _this.confPageShareContentDesc,
+                     apiKey: googleAPIKey
+                  };
+<span class="cstat-no" title="statement not covered" >                  headerButton.button = arr;</span>
+                  // set details for header
+<span class="cstat-no" title="statement not covered" >                  this.moduleCtrl.setHeaderInfo({</span>
+                     title: this.label.Title,
+                     bannerHtmlL: this.requestParam.bannerHtml,
+                     homePageURL: this.siteParams.homeURL,
+                     showButton: true,
+                     headerButton: headerButton,
+                     googlePlusData: {
+                        title: _this.confPageShareContentTitle,
+                        caption: _this.confPageShareContentCaption,
+                        link: _this.confPageShareContentLink,
+                        description: _this.confPageShareContentDesc,
+                        apiKey: googleAPIKey
+                     }
+                  });
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  $('#share-buttons-group li:not(.btn-close) button').click(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                     $(".msk").show();</span>
+<span class="cstat-no" title="statement not covered" >                     $('#share-buttons-group button').removeClass("active");</span>
+<span class="cstat-no" title="statement not covered" >                     $(this).addClass("active");</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider").attr("aria-expanded", "true");</span>
+<span class="cstat-no" title="statement not covered" >                     var title = $(this).attr("data-title")</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider h1").html("Share &lt;strong&gt;" + title + "&lt;/strong&gt;");</span>
+<span class="cstat-no" title="statement not covered" >                     var type = $(this).attr("data-type")</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-content").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-content.share-" + type).show();</span>
+                  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  $('.share-content footer button:not(.secondary)').click(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                     $(".msk").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $("div.panel.share-slider").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $('#share-buttons-group li:not(.btn-close) button').removeClass("active");</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider").attr("aria-expanded", "false");</span>
+&nbsp;
+                  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  $('.share-content footer button.secondary').click(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                     $(".msk").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $("div.panel.share-slider").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $('#share-buttons-group li:not(.btn-close) button').removeClass("active");</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider").attr("aria-expanded", "false");</span>
+&nbsp;
+                  });
+&nbsp;
+               };
+&nbsp;
+            }
+&nbsp;
+&nbsp;
+&nbsp;
+         } catch (_ex) {
+<span class="cstat-no" title="statement not covered" >            this.$logError('BoardingPassScript: an error has occured in dataReady function');</span>
+         }
+      },
+&nbsp;
+&nbsp;
+      $displayReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >         try {</span>
+<span class="cstat-no" title="statement not covered" >            this.$logInfo('BoardingPassScript: Entering displayReady function ');</span>
+<span class="cstat-no" title="statement not covered" >            modules.view.merci.common.utils.MCommonScript.hideMskOverlay();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            jQuery("#listboxa article").each(<span class="fstat-no" title="function not covered" >function(i, data) {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >               if (jQuery(data).attr("atdelegate")) {</span>
+<span class="cstat-no" title="statement not covered" >                  jQuery(data).attr("data-airp-list-onclick", jQuery(data).attr("atdelegate"));</span>
+<span class="cstat-no" title="statement not covered" >                  jQuery(data).attr("data-airp-list-forheader_onclick", jQuery(data).attr("ondblclick"));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  jQuery(data).removeAttr("atdelegate");</span>
+<span class="cstat-no" title="statement not covered" >                  jQuery(data).removeAttr("ondblclick");</span>
+               }
+&nbsp;
+            });
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (aria.core.Browser.isIOS) {</span>
+               //eventItem="ontouchstart";
+<span class="cstat-no" title="statement not covered" >               eventItem = "atdelegate";</span>
+&nbsp;
+            } else {
+               //eventItem="onclick";
+<span class="cstat-no" title="statement not covered" >               eventItem = "atdelegate";</span>
+            }
+            /*
+             * For hiding boarding pass header right arrow img
+             * */
+<span class="cstat-no" title="statement not covered" >            hideBoardinglistheaderRtarro = true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var cpr = this.moduleCtrl.getCPR();</span>
+            /*For local storage*/
+            /*
+             * if condition to make sure in case of bitly not to store MBp
+             * Why not store in case of bitly MBp is we wont be having cpr identification
+             * and which requried to form local storage
+             *
+             * */
+<span class="cstat-no" title="statement not covered" >            if (cpr != null) {</span>
+<span class="cstat-no" title="statement not covered" >               var boardingPassRespDtls = this.requestParam.BPResponseDetails;</span>
+<span class="cstat-no" title="statement not covered" >               var deliveredDocuments = boardingPassRespDtls.deliveredDocuments;</span>
+<span class="cstat-no" title="statement not covered" >               this.moduleCtrl.boardingPassLocalStorage(deliveredDocuments);</span>
+            }
+            /*End For local storage*/
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (this.data.NotAllBoardingPassIssued == true) {</span>
+<span class="cstat-no" title="statement not covered" >               var errors = [];</span>
+<span class="cstat-no" title="statement not covered" >               errors.push({</span>
+                  "localizedMessage": errorStrings[25000080].localizedMessage,
+                  "code": errorStrings[25000080].errorid
+               });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >               this.moduleCtrl.displayErrors(errors, "boardingErrorMsgs", "error");</span>
+            }
+<span class="cstat-no" title="statement not covered" >            this.data.NotAllBoardingPassIssued == false;</span>
+&nbsp;
+&nbsp;
+         } catch (exception) {
+<span class="cstat-no" title="statement not covered" >            this.$logError('BoardingPassScript::An error occured in displayReady function',</span>
+               exception);
+         }
+      },
+&nbsp;
+      $viewReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >         this.$logInfo('BoardingPassScript::Entering viewReady function');</span>
+<span class="cstat-no" title="statement not covered" >         try {</span>
+<span class="cstat-no" title="statement not covered" >            var _thisClasses = this.moduleCtrl;</span>
+<span class="cstat-no" title="statement not covered" >            jQuery("#listboxa:first-child").addClass("is-selected");</span>
+<span class="cstat-no" title="statement not covered" >            var len = document.querySelectorAll("#listboxa&gt;li").length;</span>
+<span class="cstat-no" title="statement not covered" >            var width = len % 2 == 0 ? len * 350 : (len * 350) + 350;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            jQuery("#listboxa").css("width", width + "px");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >               if (i == 0)</span>
+<span class="cstat-no" title="statement not covered" >                  jQuery("#Indicator_details").append("&lt;li class=\"is-selected\"&gt;&lt;/li&gt;");</span>
+               else
+<span class="cstat-no" title="statement not covered" >                  jQuery("#Indicator_details").append("&lt;li&gt;&lt;/li&gt;");</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            setTimeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >               is_clickedOn_list = -1;</span>
+<span class="cstat-no" title="statement not covered" >               positionCarrousel($('.carrousel-full'));</span>
+<span class="cstat-no" title="statement not covered" >               lightSelectedUp();</span>
+<span class="cstat-no" title="statement not covered" >               changeTitle();</span>
+<span class="cstat-no" title="statement not covered" >               _thisClasses.setWarnings("");</span>
+            }, 400);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            jQuery(".carrousel-full").swipe({</span>
+               swipeLeft: <span class="fstat-no" title="function not covered" >function(event, direction, distance, duration, fingerCount) {</span>
+<span class="cstat-no" title="statement not covered" >                  if (is_clickedOn_list == itemCounter) {</span>
+<span class="cstat-no" title="statement not covered" >                     is_clickedOn_list = -1;</span>
+                     /*commented because causing prob swiping
+                      * return;
+                      */
+                  }
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  var carrouselToMove = $(this).children('ul');</span>
+<span class="cstat-no" title="statement not covered" >                  var totalSec = $(this).children('ul').children().length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  var middlePoint = $(document).width() / 2;</span>
+&nbsp;
+                  /*
+                   * Condition to check if it is last trip and move left
+                   */
+<span class="cstat-no" title="statement not covered" >                  if (itemCounter &lt; (totalSec - 1)) {</span>
+<span class="cstat-no" title="statement not covered" >                     moveCarrousel_left(carrouselToMove);</span>
+                  } else {
+                     /*
+                      * For provide not moving effect
+                      */
+<span class="cstat-no" title="statement not covered" >                     carrouselToMove.animate({</span>
+                        left: '-=15px'
+                     }, 300);
+<span class="cstat-no" title="statement not covered" >                     carrouselToMove.animate({</span>
+                        left: '+=15px'
+                     }, 300);
+                  }
+&nbsp;
+               },
+&nbsp;
+               swipeRight: <span class="fstat-no" title="function not covered" >function(event, direction, distance, duration, fingerCount) {</span>
+<span class="cstat-no" title="statement not covered" >                  if (is_clickedOn_list == itemCounter) {</span>
+<span class="cstat-no" title="statement not covered" >                     is_clickedOn_list = -1;</span>
+                     /*commented because causing prob swiping
+                      * return;
+                      */
+                  }
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  var carrouselToMove = $(this).children('ul');</span>
+<span class="cstat-no" title="statement not covered" >                  var totalSec = $(this).children('ul').children().length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  var middlePoint = $(document).width() / 2;</span>
+&nbsp;
+                  /*
+                   * Condition to check if it is first trip and move right
+                   * */
+<span class="cstat-no" title="statement not covered" >                  if (itemCounter &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                     moveCarrousel_right(carrouselToMove);</span>
+                  } else {
+                     /*
+                      * For provide not moving effect
+                      * */
+<span class="cstat-no" title="statement not covered" >                     carrouselToMove.animate({</span>
+                        left: '+=15px'
+                     }, 300);
+<span class="cstat-no" title="statement not covered" >                     carrouselToMove.animate({</span>
+                        left: '-=15px'
+                     }, 300);
+&nbsp;
+                  }
+&nbsp;
+&nbsp;
+               }
+&nbsp;
+            });
+&nbsp;
+            /*GOOGLE ANALYTICS */
+<span class="cstat-no" title="statement not covered" >              if (this.moduleCtrl.getEmbeded()) {</span>
+<span class="cstat-no" title="statement not covered" >                jQuery("[name='ga_track_pageview']").val("Boarding Pass");</span>
+<span class="cstat-no" title="statement not covered" >                window.location = "sqmobile" + "://?flow=MCI/pageloaded=BoardingPass";</span>
+&nbsp;
+              } else {
+<span class="cstat-no" title="statement not covered" >                var GADetails = this.moduleCtrl.getGADetails();</span>
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                this.__ga.trackPage({</span>
+                  domain: GADetails.siteGADomain,
+                  account: GADetails.siteGAAccount,
+                  gaEnabled: GADetails.siteGAEnable,
+                  page: 'Boarding Pass',
+                  GTMPage: 'Boarding Pass'
+                });
+              }
+              /*GOOGLE ANALYTICS */
+&nbsp;
+         } catch (exception) {
+<span class="cstat-no" title="statement not covered" >            this.$logError('BoardingPassScript::An error occured in viewReady function', exception);</span>
+         }
+&nbsp;
+      },
+&nbsp;
+      shareTrip: <span class="fstat-no" title="function not covered" >function(ATArgs, args) {</span>
+<span class="cstat-no" title="statement not covered" >         this.$logInfo('BoardingPassScript::Entering shareTrip function');</span>
+<span class="cstat-no" title="statement not covered" >         try {</span>
+<span class="cstat-no" title="statement not covered" >            this.__clearShareNotification();</span>
+            //var labels = this.moduleCtrl.getModuleData().booking.MCONF_A.labels;
+<span class="cstat-no" title="statement not covered" >            var client = "MobileWeb";</span>
+<span class="cstat-no" title="statement not covered" >            var base = modules.view.merci.common.utils.URLManager.getBaseParams();</span>
+<span class="cstat-no" title="statement not covered" >            if (base[14] != null &amp;&amp; base[14] != '') {</span>
+<span class="cstat-no" title="statement not covered" >               var clientName = base[14].toLowerCase();</span>
+<span class="cstat-no" title="statement not covered" >               if (clientName == 'android') {</span>
+<span class="cstat-no" title="statement not covered" >                  client = "MobileAppAndroid";</span>
+               } else <span class="cstat-no" title="statement not covered" >if (clientName == 'iphone') {</span>
+<span class="cstat-no" title="statement not covered" >                  client = "MobileAppiPhone";</span>
+               }
+            }
+<span class="cstat-no" title="statement not covered" >            if (client == "MobileWeb" &amp;&amp; this.utils.isRequestFromApps() != true) {</span>
+<span class="cstat-no" title="statement not covered" >               console.log("args :" + args.id);</span>
+<span class="cstat-no" title="statement not covered" >               $(".msk").show();</span>
+<span class="cstat-no" title="statement not covered" >               $('#share-buttons-group button').removeClass("active");</span>
+<span class="cstat-no" title="statement not covered" >               $(this).addClass("active");</span>
+<span class="cstat-no" title="statement not covered" >               $(".panel.share-slider").attr("aria-expanded", "true");</span>
+<span class="cstat-no" title="statement not covered" >               var title = $(this).attr("data-title")</span>
+                  /*$(".panel.share-slider h1").html("Share &lt;strong&gt;"+args.id+"&lt;/strong&gt;");
+            var type = $(this).attr("data-type")*/
+<span class="cstat-no" title="statement not covered" >               $(".share-content").hide();</span>
+&nbsp;
+               /*this.confPageShareContentTitle = 'PNR Title';
+            this.confPageShareContentCaption = 'PNR Caption ';
+            this.confPageShareImageURL = 'http://fbrell.com/f8.jpg';
+            this.confPageSahreContentDesc = this.getShareData();
+            this.confPageShareContentLink = 'http://www.singapore.com';*/
+<span class="cstat-no" title="statement not covered" >               var current = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >               switch (args.id) {</span>
+                  case 'FACEBOOK':
+<span class="cstat-no" title="statement not covered" >                     $(".msk").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-mail").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-sms").hide();</span>
+                     /*https://developers.facebook.com/docs/sharing/reference/feed-dialog/v2.0*/
+<span class="cstat-no" title="statement not covered" >                     window.open('https://www.facebook.com/dialog/feed?app_id=' + this.parameters.siteFaceBookAPIKey + '&amp;redirect_uri=http%3A%2F%2Fwww.facebook.com&amp;display=popup&amp;link=' + encodeURIComponent(this.confPageShareContentLink) + '&amp;name=' + encodeURIComponent(this.confPageShareContentTitle) + '&amp;description=' + encodeURIComponent(this.confPageShareContentDesc) + '&amp;from_login=1');</span>
+<span class="cstat-no" title="statement not covered" >                     break;</span>
+                  case 'GOOGLEPLUS':
+<span class="cstat-no" title="statement not covered" >                     $(".share-gp").show();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-mail").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-sms").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider h1").html("Share &lt;strong&gt; ON " + args.id + "&lt;/strong&gt;");</span>
+<span class="cstat-no" title="statement not covered" >                     break;</span>
+                  case 'LINKEDIN':
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                     $(".msk").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-mail").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-sms").hide();</span>
+                     // console.log("this.confPageSahreContentDesc : "+this.confPageSahreContentDesc);
+<span class="cstat-no" title="statement not covered" >                     window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=' + current.confPageShareContentLink + '&amp;title=' + current.confPageShareContentTitle + '&amp;summary=' + current.confPageShareContentDesc + '&amp;source=LinkedIn');</span>
+<span class="cstat-no" title="statement not covered" >                     break;</span>
+&nbsp;
+                  case 'TWITTER':
+<span class="cstat-no" title="statement not covered" >                     $(".msk").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-mail").hide();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-sms").hide();</span>
+&nbsp;
+                     /* $(".share-tr").show();
+              $(".panel.share-slider h1").html("Share &lt;strong&gt; ON "+args.id+"&lt;/strong&gt;");*/
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                     var shareContent = this.confPageShareContentDesc;</span>
+<span class="cstat-no" title="statement not covered" >                     if (shareContent.length &gt; 140) {</span>
+<span class="cstat-no" title="statement not covered" >                        shareContent = shareContent.substring(0, 136);</span>
+<span class="cstat-no" title="statement not covered" >                        shareContent = shareContent + '...';</span>
+                     }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                     window.open('http://twitter.com/share?text=' + shareContent + '&amp;url=', 'scrollbars=no,menubar=no,height=450,width=650,resizable=yes,toolbar=no,location=no,status=no');</span>
+<span class="cstat-no" title="statement not covered" >                     break;</span>
+                  case 'EMAIL':
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider").show();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-mail").show();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider h1").html("" + this.label.tx_merci_text_sm_share + " &lt;strong&gt; BY " + this.label.tx_merci_text_sm_by_email + "&lt;/strong&gt;");</span>
+<span class="cstat-no" title="statement not covered" >                     document.getElementById("emailta").value = this.confPageShareContentDesc;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                     break;</span>
+                  case 'SMS':
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider").show();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".share-sms").show();</span>
+<span class="cstat-no" title="statement not covered" >                     $(".panel.share-slider h1").html("" + this.label.tx_merci_text_sm_share + "&lt;strong&gt; BY " + this.label.tx_merci_text_sm_by_sms + "&lt;/strong&gt;");</span>
+<span class="cstat-no" title="statement not covered" >                     document.getElementById("smsta").value = this.confPageShareContentDesc;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                     break;</span>
+                  default:
+&nbsp;
+               }
+            } else {
+<span class="cstat-no" title="statement not covered" >               this.utils.sendShareData(args.id, this.getShareData());</span>
+            }
+&nbsp;
+         } catch (exception) {
+<span class="cstat-no" title="statement not covered" >            this.$logError('BoardingPassScript::An error occured in shareTrip function', exception);</span>
+         }
+&nbsp;
+      },
+&nbsp;
+      cancelShare: <span class="fstat-no" title="function not covered" >function(ATArgs, args) {</span>
+<span class="cstat-no" title="statement not covered" >         this.$logInfo('BoardingPassScript::Entering cancelShare function');</span>
+<span class="cstat-no" title="statement not covered" >         try {</span>
+<span class="cstat-no" title="statement not covered" >            $(".panel.share-slider").hide();</span>
+<span class="cstat-no" title="statement not covered" >            $(".msk").hide();</span>
+<span class="cstat-no" title="statement not covered" >            $("#share-buttons-group1").removeClass("showShare");</span>
+<span class="cstat-no" title="statement not covered" >            $('.share-content footer button:not(.secondary)').trigger('click');</span>
+         } catch (exception) {
+<span class="cstat-no" title="statement not covered" >            this.$logError('BoardingPassScript::An error occured in cancelShare function', exception);</span>
+         }
+      },
+&nbsp;
+      getShareData: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >         this.$logInfo('BoardingPassScript::Entering getShareData function');</span>
+<span class="cstat-no" title="statement not covered" >         try {</span>
+            //return shareData = 'I will travel from ORIGIN to DESTINATION on the DEPATUREDATETIME';
+<span class="cstat-no" title="statement not covered" >            var origin = "";</span>
+<span class="cstat-no" title="statement not covered" >            var destination = "";</span>
+<span class="cstat-no" title="statement not covered" >            var flight = "";</span>
+<span class="cstat-no" title="statement not covered" >            var departureDateTime = "";</span>
+<span class="cstat-no" title="statement not covered" >            var departureAirport = "";</span>
+<span class="cstat-no" title="statement not covered" >            var arrivalDateTime = "";</span>
+<span class="cstat-no" title="statement not covered" >            var arrivalAirport = "";</span>
+<span class="cstat-no" title="statement not covered" >            var shareData = "";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var cpr = this.moduleCtrl.getCPR();</span>
+<span class="cstat-no" title="statement not covered" >            var selectedCPR = this.moduleCtrl.getSelectedCPR();</span>
+<span class="cstat-no" title="statement not covered" >            var journey = selectedCPR.journey;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var flightID = this.moduleCtrl.getSelectedFlightforMBP();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var originCity = cpr[journey][flightID].departureAirport.airportLocation.cityName;</span>
+<span class="cstat-no" title="statement not covered" >            var destinationCity = cpr[journey][flightID].arrivalAirport.airportLocation.cityName;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var departureTime = cpr[journey][flightID].timings.SDT.time;</span>
+&nbsp;
+            // segment loop
+            // var completeString = 'I am travelling from ORIGIN to DESTINATION on FLIGHT, departing on DEPATUREDATETIME from DEPARTUREAIRPORT and arriving on ARRIVALDATETIME at ARRIVALAIRPORT.';
+<span class="cstat-no" title="statement not covered" >            var completeString = this.label.tx_merci_text_sm_sampleData; </span>//'I will travel from ORIGIN to DESTINATION on the DEPATUREDATETIME .'
+<span class="cstat-no" title="statement not covered" >            origin = (originCity != null ? originCity : "");</span>
+<span class="cstat-no" title="statement not covered" >            origin = " " + origin;</span>
+<span class="cstat-no" title="statement not covered" >            destination = (destinationCity != null ? destinationCity : "");</span>
+            // flight = (segment.airline.code != null ? segment.airline.code : "") + " " + (segment.flightNumber != null ? segment.flightNumber : "");
+<span class="cstat-no" title="statement not covered" >            departureDateTime = (departureTime != null ? departureTime : "");</span>
+            // departureAirport = (segment.beginLocation.locationName != null ? segment.beginLocation.locationName : "") + (segment.beginTerminal != null ? (" Terminal " + segment.beginTerminal) : "");
+            // arrivalDateTime = segment.endDate;
+            // arrivalAirport = (segment.endLocation.locationName != null ? segment.endLocation.locationName : "") + (segment.endTerminal != null ? (" Terminal " + segment.endTerminal) : "");
+<span class="cstat-no" title="statement not covered" >            var shareDataString = new this.buffer(completeString);</span>
+<span class="cstat-no" title="statement not covered" >            completeString = shareDataString.formatString([origin, destination, departureDateTime]);</span>
+<span class="cstat-no" title="statement not covered" >            completeString = completeString.replace("GMT", '');</span>
+            //completeString = completeString.replace("ORIGIN", origin).replace("DESTINATION", destination).replace("FLIGHT", flight).replace("DEPATUREDATETIME", departureDateTime).replace("DEPARTUREAIRPORT", departureAirport).replace("ARRIVALDATETIME", arrivalDateTime).replace("ARRIVALAIRPORT", arrivalAirport).replace("GMT", '');
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            shareData = completeString;</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            console.log("getShareData" + shareData);</span>
+<span class="cstat-no" title="statement not covered" >            return shareData;</span>
+&nbsp;
+         } catch (exception) {
+<span class="cstat-no" title="statement not covered" >            this.$logError('BoardingPassScript::An error occured in getShareData function', exception);</span>
+         }
+      },
+&nbsp;
+      sendShareData: <span class="fstat-no" title="function not covered" >function(shareID, shareData) {</span>},
+&nbsp;
+      __clearShareNotification: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >         this.$logInfo('BoardingPassScript::Entering __clearShareNotification function');</span>
+<span class="cstat-no" title="statement not covered" >         try {</span>
+<span class="cstat-no" title="statement not covered" >            if (document.getElementById('shareNot') != undefined || document.getElementById('shareNot') != null) {</span>
+<span class="cstat-no" title="statement not covered" >               document.getElementById('shareNot').innerHTML = '';</span>
+            }
+&nbsp;
+         } catch (exception) {
+<span class="cstat-no" title="statement not covered" >            this.$logError('BoardingPassScript::An error occured in __clearShareNotification function', exception);</span>
+         }
+      }
+&nbsp;
+   }
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 08 2015 18:25:50 GMT+0530 (India Standard Time)</div>
+</div>
+
+<script src="../prettify.js"></script>
+
+<script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+<script>
+
+    YUI().use('datatable', function (Y) {
+
+        var formatters = {
+          pct: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              try {
+                  return o.value.toFixed(2) + '%';
+              } catch (ex) { return o.value + '%'; }
+          },
+          html: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.record.get(o.column.key + '_html');
+          }
+        },
+          defaultFormatter = function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.value;
+          };
+
+        function getColumns(theadNode) {
+            var colNodes = theadNode.all('tr th'),
+                cols = [],
+                col;
+            colNodes.each(function (colNode) {
+                col = {
+                    key: colNode.getAttribute('data-col'),
+                    label: colNode.get('innerHTML') || ' ',
+                    sortable: !colNode.getAttribute('data-nosort'),
+                    className: colNode.getAttribute('class'),
+                    type: colNode.getAttribute('data-type'),
+                    allowHTML: colNode.getAttribute('data-html') === 'true' || colNode.getAttribute('data-fmt') === 'html'
+                };
+                col.formatter = formatters[colNode.getAttribute('data-fmt')] || defaultFormatter;
+                cols.push(col);
+            });
+            return cols;
+        }
+
+        function getRowData(trNode, cols) {
+            var tdNodes = trNode.all('td'),
+                    i,
+                    row = { classes: {} },
+                    node,
+                    name;
+            for (i = 0; i < cols.length; i += 1) {
+                name = cols[i].key;
+                node = tdNodes.item(i);
+                row[name] = node.getAttribute('data-value') || node.get('innerHTML');
+                row[name + '_html'] = node.get('innerHTML');
+                row.classes[name] = node.getAttribute('class');
+                //Y.log('Name: ' + name + '; Value: ' + row[name]);
+                if (cols[i].type === 'number') { row[name] = row[name] * 1; }
+            }
+            //Y.log(row);
+            return row;
+        }
+
+        function getData(tbodyNode, cols) {
+            var data = [];
+            tbodyNode.all('tr').each(function (trNode) {
+                data.push(getRowData(trNode, cols));
+            });
+            return data;
+        }
+
+        function replaceTable(node) {
+            if (!node) { return; }
+            var cols = getColumns(node.one('thead')),
+                data = getData(node.one('tbody'), cols),
+                table,
+                parent = node.get('parentNode');
+
+            table = new Y.DataTable({
+                columns: cols,
+                data: data,
+                sortBy: 'file'
+            });
+            parent.set('innerHTML', '');
+            table.render(parent);
+        }
+
+        Y.on('domready', function () {
+            replaceTable(Y.one('div.coverage-summary table'));
+            if (typeof prettyPrint === 'function') {
+                prettyPrint();
+            }
+        });
+    });
+</script>
+</body>
+</html>

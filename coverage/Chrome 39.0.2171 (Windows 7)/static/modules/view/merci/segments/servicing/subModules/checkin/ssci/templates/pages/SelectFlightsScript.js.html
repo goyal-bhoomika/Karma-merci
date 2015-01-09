@@ -1,0 +1,2521 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/SelectFlightsScript.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../prettify.css">
+
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Helvetica Neue, Helvetica,Arial;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 10em;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Consolas, Menlo, Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 14px;
+            font-size: 14px;
+            -moz-tab-size: 2;
+            -o-tab-size:  2;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { text-decoration: none; color: #000; }
+        div.coverage-summary a:visited { text-decoration: none; color: #333; }
+        div.coverage-summary a:hover { text-decoration: underline; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: url("http://yui.yahooapis.com/3.6.0/build/datatable-sort/assets/skins/sam/sort-arrow-sprite.png") no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/SelectFlightsScript.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">0.33% <small>(1 / 306)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 205)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">0.33% <small>(1 / 306)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages\</a> &#187; SelectFlightsScript.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @class samples.templates.domevents.templates.pages.TemplateScript
+ */
+Aria.tplScriptDefinition({
+	$classpath: 'modules.view.merci.segments.servicing.subModules.checkin.ssci.templates.pages.SelectFlightsScript',
+	$dependencies: [
+&nbsp;
+		'modules.view.merci.common.utils.MerciGA'
+	],
+&nbsp;
+	$constructor: <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		this.__ga = modules.view.merci.common.utils.MerciGA;</span>
+	},
+	$prototype: {
+		$dataReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering dataReady function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+&nbsp;
+				/*For Selected CPR */
+<span class="cstat-no" title="statement not covered" >				var selectedCPR = this.moduleCtrl.getSelectedCPR();</span>
+				/*In Case of InDirect Landing to Flight Selection Page From Passenger sElection page*/
+<span class="cstat-no" title="statement not covered" >				this.requestParam = this.moduleCtrl.getModuleData().checkIn[this.moduleCtrl.getLandingPageDetail()].requestParam;</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.setCPR(this.requestParam.CPRIdentification);</span>
+<span class="cstat-no" title="statement not covered" >				if (this.moduleCtrl.getLandingPageDetail() == 'MSSCISelectFlights_A') {</span>
+					/*For CPR Modified Response*/
+<span class="cstat-no" title="statement not covered" >					var data = this.moduleCtrl.getCPR();</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (selectedCPR.journey == "") {</span>
+						//Code For Setting Journey
+<span class="cstat-no" title="statement not covered" >						var journeyNo = null;</span>
+<span class="cstat-no" title="statement not covered" >						for (journeyNo in data) {</span>
+<span class="cstat-no" title="statement not covered" >							break;</span>
+						}
+<span class="cstat-no" title="statement not covered" >						if (journeyNo != null &amp;&amp; data[journeyNo] != null) {</span>
+<span class="cstat-no" title="statement not covered" >							this.moduleCtrl.updateJourneySelectedCPR(journeyNo);</span>
+						}
+					}
+<span class="cstat-no" title="statement not covered" >					if (selectedCPR.customer == null || selectedCPR.customer == "" || selectedCPR.customer == []) {</span>
+						//Code For Setting modified json in case of Direct Landing on flight Selection From (cpr retreive or journey Selection Page)
+						//Code for Setting Customer
+<span class="cstat-no" title="statement not covered" >						var selectedPax = [];</span>
+						//Code for Setting Adult and Infant
+<span class="cstat-no" title="statement not covered" >						for (var passenger in data[selectedCPR.journey].paxList) {</span>
+<span class="cstat-no" title="statement not covered" >							var passengerId = data[selectedCPR.journey].paxList[passenger];</span>
+<span class="cstat-no" title="statement not covered" >							selectedPax.push(passengerId);</span>
+						}
+<span class="cstat-no" title="statement not covered" >						this.moduleCtrl.updatePaxSelectedCPR(selectedPax);</span>
+					}
+				}
+&nbsp;
+				/*
+		         * forcibly making it to true, as sequential checkin mandatetory for SSCI
+		         * */
+<span class="cstat-no" title="statement not covered" >		        this.moduleCtrl.getModuleData().checkIn[this.moduleCtrl.getLandingPageDetail()].parameters.SITE_SSCI_SEQ_FLT_SEL="true";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				this.requestParam = this.moduleCtrl.getModuleData().checkIn[this.moduleCtrl.getLandingPageDetail()].requestParam;</span>
+<span class="cstat-no" title="statement not covered" >				this.label = this.moduleCtrl.getModuleData().checkIn[this.moduleCtrl.getLandingPageDetail()].SelectFlights.labels;</span>
+<span class="cstat-no" title="statement not covered" >				this.siteParams = this.moduleCtrl.getModuleData().checkIn[this.moduleCtrl.getLandingPageDetail()].siteParam;</span>
+<span class="cstat-no" title="statement not covered" >				this.parameters = this.moduleCtrl.getModuleData().checkIn[this.moduleCtrl.getLandingPageDetail()].parameters;</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.setGADetails(this.parameters);		        </span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.setFrequentFlyerList(this.moduleCtrl.getModuleData().checkIn[this.moduleCtrl.getLandingPageDetail()].freqFlyerRestList);</span>
+<span class="cstat-no" title="statement not covered" >		        this.moduleCtrl.setOperatingAirline(this.parameters.SITE_SSCI_OP_AIR_LINE);</span>
+&nbsp;
+				/**
+				 * For update IDC with new fqtv, as we resetting setCPR for latest IDC response we are calling this
+				 * function here
+				 **/
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.updateFQTVDeatilsInCPR();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.setHeaderInfo({</span>
+					title: this.label.Title,
+					bannerHtmlL: this.requestParam.bannerHtml,
+					homePageURL: this.siteParams.homeURL,
+					showButton: true
+				});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				this.errorStrings = this.moduleCtrl.getModuleData().checkIn[this.moduleCtrl.getLandingPageDetail()].errorStrings;</span>
+<span class="cstat-no" title="statement not covered" >				this.currDate = this.moduleCtrl.getsvTime("yyyy-mm-dd");</span>
+<span class="cstat-no" title="statement not covered" >				this.data.siteParameters = this.parameters;</span>
+<span class="cstat-no" title="statement not covered" >				this.data.pageErrors=this.errorStrings;</span>
+<span class="cstat-no" title="statement not covered" >				this.data.pageLabels = this.label;</span>
+&nbsp;
+&nbsp;
+				/*Calling for country re construction*/
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.countryList();</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in dataReady function', exception);</span>
+			}
+		},
+&nbsp;
+		$destructor: <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+			//console.log("====================== DESTRUCTED ================");
+&nbsp;
+			//this.moduleCtrl.setSelectedCPR(this.tempSelectedCPR);
+&nbsp;
+		},
+&nbsp;
+		$displayReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering displayReady function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.getWarningsForThePage("FSEL", this);</span>
+<span class="cstat-no" title="statement not covered" >				var CPRdata = this.moduleCtrl.getCPR();</span>
+<span class="cstat-no" title="statement not covered" >				var selectedCPR = this.moduleCtrl.getSelectedCPR();</span>
+<span class="cstat-no" title="statement not covered" >				var journey = selectedCPR.journey;</span>
+<span class="cstat-no" title="statement not covered" >				var noOfFlights = CPRdata[journey].flightList.length;</span>
+<span class="cstat-no" title="statement not covered" >				var errors = [];</span>
+&nbsp;
+&nbsp;
+				/*Code From Diabling if User Cannot Proceed Further in current Session*/
+<span class="cstat-no" title="statement not covered" >				if (this.moduleCtrl.getIsSelectFlightPageError() == true) {</span>
+<span class="cstat-no" title="statement not covered" >					jQuery("#section1 input[type='checkbox']").prop("checked",false);</span>
+<span class="cstat-no" title="statement not covered" >					jQuery("#section1 input[type='checkbox']").attr("disabled", "disabled");</span>
+<span class="cstat-no" title="statement not covered" >					jQuery("#selectFlightContinue").attr("disabled", "disabled");</span>
+<span class="cstat-no" title="statement not covered" >					jQuery("#selectFlightContinue").addClass('disabled');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					this.moduleCtrl.displayErrors(jsonResponse.mciErrors, "initiateandEditErrors", "error");</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var buttonRef = jQuery('#selectFlightContinue');</span>
+<span class="cstat-no" title="statement not covered" >				var checkBoxFlights = $('ul.checkin-list[data-info="flights-ready-list-ssci"] input[type="checkbox"]');</span>
+<span class="cstat-no" title="statement not covered" >				var dgrGoodsOrUSFlag = false;</span>
+<span class="cstat-no" title="statement not covered" >				if (this.parameters.SITE_SSCI_DG_PG_LOCATION == "FSEL" /*|| (this.parameters.SITE_SSCI_USPHMSA_LOCATON == "FSEL" &amp;&amp; this.isUSRoute()) */ ) {</span>
+<span class="cstat-no" title="statement not covered" >					dgrGoodsOrUSFlag = true;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				var _this = this;</span>
+<span class="cstat-no" title="statement not covered" >				$(document).on("change",'ul.checkin-list[data-info="flights-ready-list-ssci"] input[type="checkbox"]', <span class="fstat-no" title="function not covered" >function() {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					_this.checkIfenableNav(buttonRef, checkBoxFlights, dgrGoodsOrUSFlag);</span>
+				});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var allowSequentialCheckin = false;</span>
+<span class="cstat-no" title="statement not covered" >				var allowJourneySelection = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if (this.parameters.SITE_SSCI_SEQ_FLT_SEL.search(/true/i) != "-1") {</span>
+<span class="cstat-no" title="statement not covered" >					allowSequentialCheckin = true;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (this.parameters.SITE_SSCI_JNY_LVL_FLT_SEL.search(/true/i) != "-1") {</span>
+<span class="cstat-no" title="statement not covered" >					allowJourneySelection = true;</span>
+				}
+&nbsp;
+				/*For restricting user to select flight in case if all pax in that flight are already checked in*/
+<span class="cstat-no" title="statement not covered" >				jQuery(".flightSelCheckBox").each(<span class="fstat-no" title="function not covered" >function() {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (jQuery(this).nextUntil(".pax-sub-list").eq(jQuery(this).eq(0).nextUntil(".pax-sub-list").length - 1).find(".checkedin").length == jQuery(this).nextUntil(".pax-sub-list").eq(jQuery(this).eq(0).nextUntil(".pax-sub-list").length - 1).find("li.pax").length) {</span>
+<span class="cstat-no" title="statement not covered" >						jQuery(this).prop("checked",false).attr("disabled", "disabled");</span>
+<span class="cstat-no" title="statement not covered" >						jQuery(this).addClass("canNotChange");</span>
+					}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (allowJourneySelection &amp;&amp; !$(this).hasClass("canNotChange")) {</span>
+<span class="cstat-no" title="statement not covered" >						jQuery(this).prop("checked", true).attr("disabled", "disabled");</span>
+&nbsp;
+&nbsp;
+					}
+&nbsp;
+					/*
+					 * For stop over suppresser
+					 * */
+<span class="cstat-no" title="statement not covered" >					if(!allowJourneySelection &amp;&amp; !$(this).hasClass("canNotChange") &amp;&amp; $(this).is(":checked"))</span>
+					{
+<span class="cstat-no" title="statement not covered" >						 _this.checkstopover(jQuery(this));</span>
+					}
+					/*
+					 * End For stop over suppresser
+					 * */
+				});
+&nbsp;
+				/*Journey check box*/
+<span class="cstat-no" title="statement not covered" >				$("#flight01").change(<span class="fstat-no" title="function not covered" >function() {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if ($('#flight01').is(':checked')) {</span>
+<span class="cstat-no" title="statement not covered" >						for (var i = 1; i &lt;= noOfFlights; i++) {</span>
+<span class="cstat-no" title="statement not covered" >							if (!$('#seg0' + i).hasClass("canNotChange")) {</span>
+<span class="cstat-no" title="statement not covered" >								if (allowJourneySelection) {</span>
+<span class="cstat-no" title="statement not covered" >									$('#seg0' + i).prop("checked", true);</span>
+								} else {
+<span class="cstat-no" title="statement not covered" >									$('#seg0' + i).removeAttr("disabled").prop("checked", true);</span>
+								}
+&nbsp;
+							}
+&nbsp;
+						}
+&nbsp;
+					} else {
+<span class="cstat-no" title="statement not covered" >						for (var i = 1; i &lt;= noOfFlights; i++) {</span>
+<span class="cstat-no" title="statement not covered" >							if (!$('#seg0' + i).hasClass("canNotChange")) {</span>
+<span class="cstat-no" title="statement not covered" >								if (allowJourneySelection) {</span>
+<span class="cstat-no" title="statement not covered" >									$('#seg0' + i).prop('checked',false);</span>
+								} else {
+<span class="cstat-no" title="statement not covered" >									$('#seg0' + i).removeAttr("disabled").prop('checked',false);</span>
+								}
+							}
+						}
+&nbsp;
+						/*For impose sequential check in*/
+<span class="cstat-no" title="statement not covered" >						var flag = false;</span>
+<span class="cstat-no" title="statement not covered" >						if (!allowJourneySelection &amp;&amp; allowSequentialCheckin) {</span>
+<span class="cstat-no" title="statement not covered" >							for (var i = 1; i &lt;= noOfFlights; i++) {</span>
+<span class="cstat-no" title="statement not covered" >								if (!$('#seg0' + i).hasClass("canNotChange") &amp;&amp; !flag) {</span>
+<span class="cstat-no" title="statement not covered" >									flag = true;</span>
+								} else <span class="cstat-no" title="statement not covered" >if (!$('#seg0' + i).hasClass("canNotChange") &amp;&amp; flag) {</span>
+<span class="cstat-no" title="statement not covered" >									jQuery('#seg0' + i).prop("checked",false).attr("disabled", "disabled");</span>
+								}
+							}
+						}
+&nbsp;
+					}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					jQuery(".flightSelCheckBox").each(<span class="fstat-no" title="function not covered" >function() {</span></span>
+&nbsp;
+						/*
+						 * For stop over suppresser
+						 * */
+<span class="cstat-no" title="statement not covered" >						if(!allowJourneySelection &amp;&amp; !$(this).hasClass("canNotChange") &amp;&amp; $(this).is(":checked"))</span>
+						{
+<span class="cstat-no" title="statement not covered" >							 _this.checkstopover(jQuery(this));</span>
+						}
+						/*
+						 * End For stop over suppresser
+						 * */
+					});
+&nbsp;
+				});
+&nbsp;
+				/* Each flight check boxes */
+<span class="cstat-no" title="statement not covered" >				$(".flightSelCheckBox").change(<span class="fstat-no" title="function not covered" >function() {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (!allowJourneySelection) {</span>
+<span class="cstat-no" title="statement not covered" >						if ($(".flightSelCheckBox:checked").length == ($(".flightSelCheckBox").length - $(".canNotChange").length)) {</span>
+<span class="cstat-no" title="statement not covered" >							$("#flight01").prop("checked", true);</span>
+						} else {
+<span class="cstat-no" title="statement not covered" >							$("#flight01").prop("checked",false);</span>
+						}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						if (allowSequentialCheckin) {</span>
+<span class="cstat-no" title="statement not covered" >							if (jQuery(this).is(':checked')) {</span>
+<span class="cstat-no" title="statement not covered" >								var flag = false;</span>
+<span class="cstat-no" title="statement not covered" >								var flightSelCheckBox_this = this;</span>
+<span class="cstat-no" title="statement not covered" >								jQuery("[id^='seg0']").each(<span class="fstat-no" title="function not covered" >function() {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >									if ((parseInt(jQuery(this).attr("name")) &gt; parseInt(jQuery(flightSelCheckBox_this).attr("name"))) &amp;&amp; !jQuery(this).hasClass("canNotChange") &amp;&amp; !flag) {</span>
+<span class="cstat-no" title="statement not covered" >										flag = true;</span>
+<span class="cstat-no" title="statement not covered" >										$(this).removeAttr("disabled").prop('checked',false);</span>
+									} else <span class="cstat-no" title="statement not covered" >if ((parseInt(jQuery(this).attr("name")) &gt; parseInt(jQuery(flightSelCheckBox_this).attr("name"))) &amp;&amp; !jQuery(this).hasClass("canNotChange")) {</span>
+<span class="cstat-no" title="statement not covered" >										$(this).attr("disabled", "disabled").prop('checked',false);</span>
+									}
+&nbsp;
+&nbsp;
+								});
+							} else {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >								var flightSelCheckBox_this = this;</span>
+<span class="cstat-no" title="statement not covered" >								jQuery("[id^='seg0']").each(<span class="fstat-no" title="function not covered" >function() {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >									if ((parseInt(jQuery(this).attr("name")) &gt; parseInt(jQuery(flightSelCheckBox_this).attr("name"))) &amp;&amp; !jQuery(this).hasClass("canNotChange")) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >										$(this).attr("disabled", "disabled").prop('checked',false);</span>
+									}
+&nbsp;
+&nbsp;
+								});
+							}
+						}
+&nbsp;
+						/*
+						 * For stop over suppresser
+						 * */
+<span class="cstat-no" title="statement not covered" >						if(!$(this).hasClass("canNotChange"))</span>
+						{
+<span class="cstat-no" title="statement not covered" >							 _this.checkstopover(jQuery(this));</span>
+						}
+						/*
+						 * End For stop over suppresser
+						 * */
+					}
+&nbsp;
+&nbsp;
+				});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if ($(".flightSelCheckBox:checked").length == 0) {</span>
+<span class="cstat-no" title="statement not covered" >					$("#flight01").attr("disabled", "disabled").prop('checked',false);</span>
+<span class="cstat-no" title="statement not covered" >					$("#selectFlightContinue").attr("disabled", "disabled").addClass('disabled');</span>
+				}
+&nbsp;
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in displayReady function', exception);</span>
+			}
+		},
+&nbsp;
+		$viewReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering viewReady function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+				//For Setting the Page from Which PassengerDetails Screen Can Be Called.
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.setPassengerDetailsFlow("FSEL");</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.setSuccess("");</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.setErrors("");</span>
+&nbsp;
+				/*GOOGLE ANALYTICS */
+<span class="cstat-no" title="statement not covered" >				if (this.moduleCtrl.getEmbeded()) {</span>
+<span class="cstat-no" title="statement not covered" >			        jQuery("[name='ga_track_pageview']").val("Select flight");</span>
+<span class="cstat-no" title="statement not covered" >			        window.location = "sqmobile" + "://?flow=MCI/pageloaded=selectFlights";</span>
+&nbsp;
+			    } else {
+<span class="cstat-no" title="statement not covered" >			        var GADetails = this.moduleCtrl.getGADetails();</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			        this.__ga.trackPage({</span>
+			          domain: GADetails.siteGADomain,
+			          account: GADetails.siteGAAccount,
+			          gaEnabled: GADetails.siteGAEnable,
+			          page: 'Select flight',
+			          GTMPage: 'Select flight'
+			        });
+&nbsp;
+			    }
+				/*GOOGLE ANALYTICS*/
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in viewReady function', exception);</span>
+			}
+		},
+		/*
+		 * For stop over suppresser
+		 *
+		 * PLEASE NOTE THAT WE ARE NOT DEPENDING ON is-checked class ANY WHERE EXCEPT IT IS APPLIED FROM TPL AND appCTRL.
+		 * */
+		checkstopover: <span class="fstat-no" title="function not covered" >function(BaseElement) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering checkstopover function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				var temp=jQuery("#passInfo01").find("[name='" + (parseInt(BaseElement.attr("name")) + 1) + "']").attr("data-stopover");</span>
+<span class="cstat-no" title="statement not covered" >		      if (temp != undefined &amp;&amp; typeof temp == "string" &amp;&amp; temp.search(/true/gi) != -1) {</span>
+<span class="cstat-no" title="statement not covered" >		        if (BaseElement.is(":checked")) {</span>
+<span class="cstat-no" title="statement not covered" >		          if (!jQuery("#passInfo01").find("[name='" + (parseInt(BaseElement.attr("name")) + 1) + "']").is(":checked")) {</span>
+<span class="cstat-no" title="statement not covered" >		            jQuery("#passInfo01").find("[name='" + (parseInt(BaseElement.attr("name")) + 1) + "']").trigger("click");</span>
+&nbsp;
+		          }
+<span class="cstat-no" title="statement not covered" >		          jQuery("#passInfo01").find("[name='" + (parseInt(BaseElement.attr("name")) + 1) + "']").attr("disabled", "disabled");</span>
+<span class="cstat-no" title="statement not covered" >		          this.checkstopover(jQuery("#passInfo01").find("[name='" + (parseInt(BaseElement.attr("name")) + 1) + "']"));</span>
+		        } else {
+		          /*jQuery("#passInfo01").find("[name='" + (parseInt(BaseElement.attr("name")) + 1) + "']").removeAttr("checked");
+		          jQuery("#passInfo01").find("[name='" + (parseInt(BaseElement.attr("name")) + 1) + "']").removeAttr("disabled");
+		           */
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		          this.checkstopover(jQuery("#passInfo01").find("[name='" + (parseInt(BaseElement.attr("name")) + 1) + "']"));</span>
+		        }
+		      }
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in checkstopover function', exception);</span>
+			}
+&nbsp;
+		    },
+		/*
+		 * End For stop over suppresser
+		 * */
+		// Function is used to check whether flight checkin is eligible or not
+		isFlightEligible: <span class="fstat-no" title="function not covered" >function(product) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering isFlightEligible function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+				// based on the marketingCarrier, chk is done
+<span class="cstat-no" title="statement not covered" >				if (!product.primeFlightEligible) {</span>
+<span class="cstat-no" title="statement not covered" >					this.errorMsg = jQuery.substitute(this.label.OtherAirline, product.flightId.substring(0, 1));</span>
+<span class="cstat-no" title="statement not covered" >					this.isCurrentPrime = false;</span>
+<span class="cstat-no" title="statement not covered" >					return false;</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if (!product.flightOpen) {</span>
+<span class="cstat-no" title="statement not covered" >					this.errorMsg = this.label.FlightNotOpen;</span>
+<span class="cstat-no" title="statement not covered" >					return false;</span>
+				}
+&nbsp;
+				/* // based on the checkin opentime site parameter, chk is done
+		if(!product.flightOpen &amp;&amp; !product.open){
+			this.errorMsg = jQuery.substitute(this.label.ChkOpn, this.parameters.SITE_MCI_ACPTNC_TIME);
+			return false;
+		}*/
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if (!product.flightEligible) {</span>
+<span class="cstat-no" title="statement not covered" >					this.errorMsg = this.label.ResTkt;</span>
+<span class="cstat-no" title="statement not covered" >					return false;</span>
+				}
+&nbsp;
+&nbsp;
+				//		// based on the no of passengers checked in, chk is done
+				//		if (!(this.isEligible(product_index))){
+				//			this.errorMsg = this.label.ResTkt;
+				//			return false;
+				//		}
+&nbsp;
+				// based on the booking status site parameter, chk is done
+				//var segmentBookingStatErr = true;
+&nbsp;
+				//		if (product.segmentBookingStatus){
+				//			this.segmentBookingStatErr = false;
+				//			/*if(segmentBookingStatErr){
+				//				this.segmentBookingStatErr = true;
+				//				return false;
+				//			}*/
+				//		}else
+				//		{
+				//			this.segmentBookingStatErr = true;
+				//			return false;
+				//		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return true;</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in isFlightEligible function', exception);</span>
+			}
+		},
+&nbsp;
+		loadEditPAXScreen: <span class="fstat-no" title="function not covered" >function(evt, args) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering loadEditPAXScreen function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.setSelectedEditpax(args);</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.passengerDetailsLoad();</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in loadEditPAXScreen function', exception);</span>
+			}
+		},
+&nbsp;
+		dgrGoodsOrUSCheck: <span class="fstat-no" title="function not covered" >function(evt) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering dgrGoodsOrUSCheck function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				var buttonRef = jQuery('#selectFlightContinue');</span>
+<span class="cstat-no" title="statement not covered" >				var checkBoxFlights = $('ul.checkin-list[data-info="flights-ready-list-ssci"] input[type="checkbox"]');</span>
+<span class="cstat-no" title="statement not covered" >				var dgrGoodsOrUSFlag = true;</span>
+<span class="cstat-no" title="statement not covered" >				this.checkIfenableNav(buttonRef, checkBoxFlights, dgrGoodsOrUSFlag);</span>
+<span class="cstat-no" title="statement not covered" >				return false;</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in dgrGoodsOrUSCheck function', exception);</span>
+			}
+		},
+&nbsp;
+		checkIfenableNav: <span class="fstat-no" title="function not covered" >function(buttonRef, checkBoxFlights, dgrGoodsOrUSFlag) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering checkIfenableNav function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+				/*No Of Yes Nos Boxes Conditons Check*/
+<span class="cstat-no" title="statement not covered" >				var enableTheButton = true;</span>
+				//		    checkUSBoxDAG = $('ul.checkin-list[data-info="USPHMSA"] input[type="checkbox"]');
+				//		    if(checkUSBoxDAG != undefined &amp;&amp; checkUSBoxDAG.length&gt;0){
+				//		    	if(!jQuery(checkUSBoxDAG.selector).is(':checked')){
+				//		    		  enableTheButton = false;
+				//		    	}
+				//		    }
+<span class="cstat-no" title="statement not covered" >				checkDGBoxDAG = $('ul.checkin-list[data-info="dangerous-goods"] input[type="checkbox"]');</span>
+<span class="cstat-no" title="statement not covered" >				if (checkDGBoxDAG != undefined &amp;&amp; checkDGBoxDAG.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >					if (!jQuery(checkDGBoxDAG.selector).is(':checked')) {</span>
+<span class="cstat-no" title="statement not covered" >						enableTheButton = false;</span>
+					}
+				}
+				/*No Of Yes Nos Boxes Condition Check*/
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var buttonToEnable = buttonRef ? buttonRef : $('footer.buttons button').eq(0);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if (checkBoxFlights.width() === null) {</span>
+<span class="cstat-no" title="statement not covered" >					buttonToEnable.removeClass('disabled');</span>
+<span class="cstat-no" title="statement not covered" >					buttonToEnable.removeAttr("disabled");</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					if (dgrGoodsOrUSFlag) {</span>
+<span class="cstat-no" title="statement not covered" >						if (enableTheButton &amp;&amp; checkBoxFlights.is(':checked')) {</span>
+<span class="cstat-no" title="statement not covered" >							buttonToEnable.removeClass('disabled');</span>
+<span class="cstat-no" title="statement not covered" >							buttonToEnable.removeAttr("disabled");</span>
+						} else {
+<span class="cstat-no" title="statement not covered" >							buttonToEnable.addClass('disabled');</span>
+<span class="cstat-no" title="statement not covered" >							buttonToEnable.attr("disabled", "disabled");</span>
+						}
+					} else {
+<span class="cstat-no" title="statement not covered" >						if (checkBoxFlights.is(':checked')) {</span>
+<span class="cstat-no" title="statement not covered" >							buttonToEnable.removeClass('disabled');</span>
+<span class="cstat-no" title="statement not covered" >							buttonToEnable.removeAttr("disabled");</span>
+						} else {
+<span class="cstat-no" title="statement not covered" >							buttonToEnable.addClass('disabled');</span>
+<span class="cstat-no" title="statement not covered" >							buttonToEnable.attr("disabled", "disabled");</span>
+						}
+					}
+				}
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in checkIfenableNav function', exception);</span>
+			}
+		},
+&nbsp;
+		loadDRGScreen: <span class="fstat-no" title="function not covered" >function(evt, args) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering loadDRGScreen function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.dangerousGoods_load();</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in loadDRGScreen function', exception);</span>
+			}
+		},
+&nbsp;
+		onContinueClick: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering onContinueClick function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.getListOfCheckedItems("flightSelCheckBox", "data-flightid");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var CPRdata = this.moduleCtrl.getCPR();</span>
+<span class="cstat-no" title="statement not covered" >				var selectedCPR = this.moduleCtrl.getSelectedCPR();</span>
+<span class="cstat-no" title="statement not covered" >				var journeyID = selectedCPR.journey;</span>
+<span class="cstat-no" title="statement not covered" >				var journey = CPRdata[journeyID];</span>
+<span class="cstat-no" title="statement not covered" >				var errors = [];</span>
+<span class="cstat-no" title="statement not covered" >				var minorAgeLmtParam = parseInt(this.parameters.SITE_SSCI_MINOR_AGE_LIMIT, 10) ? parseInt(this.parameters.SITE_SSCI_MINOR_AGE_LIMIT, 10) : 0;</span>
+<span class="cstat-no" title="statement not covered" >				var minorCheckToBePerformed = this.parameters.SITE_SSCI_RESTRICT_MINOR;</span>
+				/*Begin : Checkin Child Alone Cannot Checkin Condition*/
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				for (var flightIndex in selectedCPR.flighttocust) {</span>
+<span class="cstat-no" title="statement not covered" >					var childCount = 0;</span>
+<span class="cstat-no" title="statement not covered" >					var validAdultCount = 0;</span>
+<span class="cstat-no" title="statement not covered" >					var minorCount = 0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					var flightID = selectedCPR.flighttocust[flightIndex].product;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					for (var customerIndex in selectedCPR.flighttocust[flightIndex].customer) {</span>
+<span class="cstat-no" title="statement not covered" >						var custID = selectedCPR.flighttocust[flightIndex].customer[customerIndex];</span>
+<span class="cstat-no" title="statement not covered" >						var cust = journey[custID];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						if (journey[custID].passengerTypeCode == "ADT") {</span>
+<span class="cstat-no" title="statement not covered" >							var selDOB = "";</span>
+<span class="cstat-no" title="statement not covered" >							var years = 0;</span>
+&nbsp;
+							/**Checking SSR Validity**/
+<span class="cstat-no" title="statement not covered" >							var constraint = custID + flightID;</span>
+<span class="cstat-no" title="statement not covered" >							var ssrValidAdult = true;</span>
+<span class="cstat-no" title="statement not covered" >							for (var serviceNo in journey.service) {</span>
+<span class="cstat-no" title="statement not covered" >								var service = journey.service[serviceNo];</span>
+<span class="cstat-no" title="statement not covered" >								if (serviceNo.indexOf(constraint) != '-1') {</span>
+<span class="cstat-no" title="statement not covered" >									if (this.parameters.SITE_SSCI_SR_CANT_CI_ALON.toUpperCase().search(service.services[0].SSRCode) != "-1") {</span>
+<span class="cstat-no" title="statement not covered" >										ssrValidAdult = false;</span>
+									}
+								}
+							}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >							if (ssrValidAdult) {</span>
+<span class="cstat-no" title="statement not covered" >								if (((minorCheckToBePerformed != "") &amp;&amp; (minorCheckToBePerformed.search(/true/i) != -1))) {</span>
+									/*BEGIN : Getting Adults Most Updated DOB First From Regulatory Bean And If not There then From IDC Else With No DOB*/
+<span class="cstat-no" title="statement not covered" >									if ((!jQuery.isUndefined(journey.customerDetailsBeans)) &amp;&amp; (!jQuery.isUndefined(journey.customerDetailsBeans[custID])) &amp;&amp; (!jQuery.isUndefined(journey.customerDetailsBeans[custID].regulatoryDetails)) &amp;&amp; (!jQuery.isUndefined(journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas)) &amp;&amp; (0 &lt; (journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas.length))) {</span>
+<span class="cstat-no" title="statement not covered" >										for (var i in journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas) {</span>
+<span class="cstat-no" title="statement not covered" >											if (!jQuery.isUndefined(journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas[i].personalDetailsBirthDate)) {</span>
+<span class="cstat-no" title="statement not covered" >												selDOB = new Date(journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas[i].personalDetailsBirthDate);</span>
+<span class="cstat-no" title="statement not covered" >												break;</span>
+											}
+										}
+									}
+									/**If Not Found in Regulatory Details Beans then find in IDC*/
+<span class="cstat-no" title="statement not covered" >									if (selDOB == "") {</span>
+<span class="cstat-no" title="statement not covered" >										if (!jQuery.isUndefined(cust.birthDate)) {</span>
+<span class="cstat-no" title="statement not covered" >											selDOB = new Date(cust.birthDate);</span>
+										}
+									}
+									/**Finally Checkin DOB Validity*/
+<span class="cstat-no" title="statement not covered" >									if (selDOB != "") {</span>
+<span class="cstat-no" title="statement not covered" >										years = this.getAgeOfCustomerInYears(selDOB);</span>
+									}
+								}
+								/** Incase He Is Validated Not Minor */
+<span class="cstat-no" title="statement not covered" >								if ((years &gt;= minorAgeLmtParam) || (selDOB == "")) {</span>
+<span class="cstat-no" title="statement not covered" >									validAdultCount += 1;</span>
+								} else {
+<span class="cstat-no" title="statement not covered" >									minorCount += 1;</span>
+								}
+								/*END : Getting Adults Most Updated DOB First From Regulatory Bean And If not There then From IDC Else With No DOB*/
+							} else {
+<span class="cstat-no" title="statement not covered" >								minorCount += 1;</span>
+							}
+						} else <span class="cstat-no" title="statement not covered" >if (journey[custID].passengerTypeCode == "CHD") {</span>
+<span class="cstat-no" title="statement not covered" >							childCount++;</span>
+						}
+					}
+&nbsp;
+					/**Checking checkedIn Pax In the Segment*/
+<span class="cstat-no" title="statement not covered" >					if ((childCount &gt; 0 || minorCount &gt; 0) &amp;&amp; validAdultCount == 0) {</span>
+<span class="cstat-no" title="statement not covered" >						var childOrMinorNotAloneflag = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						for (var custIDIndex in journey.paxList) {</span>
+<span class="cstat-no" title="statement not covered" >							var selDOB = "";</span>
+<span class="cstat-no" title="statement not covered" >							var years = 0;</span>
+<span class="cstat-no" title="statement not covered" >							var custID = journey.paxList[custIDIndex];</span>
+<span class="cstat-no" title="statement not covered" >							var cust = journey[custID];</span>
+<span class="cstat-no" title="statement not covered" >							var constraint = custID + flightID;</span>
+<span class="cstat-no" title="statement not covered" >							if (!jQuery.isUndefined(journey.productDetailsBeans[constraint])) {</span>
+<span class="cstat-no" title="statement not covered" >								if (journey.productDetailsBeans[constraint].paxCheckedInStatusInCurrProd &amp;&amp; cust.passengerTypeCode == "ADT") {</span>
+<span class="cstat-no" title="statement not covered" >									if (((minorCheckToBePerformed != "") &amp;&amp; (minorCheckToBePerformed.search(/true/i) != -1))) {</span>
+										/*BEGIN : Getting Adults Most Updated DOB First From Regulatory Bean And If not There then From IDC Else With No DOB*/
+<span class="cstat-no" title="statement not covered" >										if ((!jQuery.isUndefined(journey.customerDetailsBeans)) &amp;&amp; (!jQuery.isUndefined(journey.customerDetailsBeans[custID])) &amp;&amp; (!jQuery.isUndefined(journey.customerDetailsBeans[custID].regulatoryDetails)) &amp;&amp; (!jQuery.isUndefined(journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas)) &amp;&amp; (0 &lt; (journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas.length))) {</span>
+<span class="cstat-no" title="statement not covered" >											for (var i in journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas) {</span>
+<span class="cstat-no" title="statement not covered" >												if (!jQuery.isUndefined(journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas[i].personalDetailsBirthDate)) {</span>
+<span class="cstat-no" title="statement not covered" >													selDOB = new Date(journey.customerDetailsBeans[custID].regulatoryDetails.requirementDatas[i].personalDetailsBirthDate);</span>
+<span class="cstat-no" title="statement not covered" >													break;</span>
+												}
+											}
+										}
+										/**If Not Found in Regulatory Details Beans then find in IDC*/
+<span class="cstat-no" title="statement not covered" >										if (selDOB == "") {</span>
+<span class="cstat-no" title="statement not covered" >											if (!jQuery.isUndefined(cust.birthDate)) {</span>
+<span class="cstat-no" title="statement not covered" >												selDOB = new Date(cust.birthDate);</span>
+											}
+										}
+										/**Finally Checkin DOB Validity*/
+<span class="cstat-no" title="statement not covered" >										if (selDOB != "") {</span>
+<span class="cstat-no" title="statement not covered" >											years = this.getAgeOfCustomerInYears(selDOB);</span>
+										}
+									}
+									/** Incase He Is Validated Not Minor */
+<span class="cstat-no" title="statement not covered" >									if ((years &gt;= minorAgeLmtParam) || (selDOB == "")) {</span>
+<span class="cstat-no" title="statement not covered" >										childOrMinorNotAloneflag = true;</span>
+<span class="cstat-no" title="statement not covered" >										break;</span>
+									}
+									/*END : Getting Adults Most Updated DOB First From Regulatory Bean And If not There then From IDC Else With No DOB*/
+&nbsp;
+								}
+							}
+						}
+<span class="cstat-no" title="statement not covered" >						if (!childOrMinorNotAloneflag) {</span>
+<span class="cstat-no" title="statement not covered" >							errors.push({</span>
+								"localizedMessage": this.errorStrings[25000037].localizedMessage
+							});
+&nbsp;
+						}
+					}
+				}
+				/*End : Checkin Child Alone Cannot Checkin Condition*/
+&nbsp;
+&nbsp;
+				/*
+				 * For impose sequential checkin
+				 * */
+<span class="cstat-no" title="statement not covered" >				this.validateSeqSelection(errors);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if (errors.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >					this.moduleCtrl.displayErrors(errors, "initiateandEditErrors", "error");</span>
+<span class="cstat-no" title="statement not covered" >					return null;</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.checkRegulatory();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				console.log(this.moduleCtrl.getSelectedCPR());</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in onContinueClick function', exception);</span>
+			}
+		},
+&nbsp;
+		validateSeqSelection: <span class="fstat-no" title="function not covered" >function(errors) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering validateSeqSelection function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+				/*
+				 * This get latest restricted flight index
+				 *
+				 * for ex in a list of flights 5 flight 2 and 4 are restricted then it return 3 i.e the index of 4 th flight
+				 *
+				 * Note: which exclude flights checked in already
+				 * */
+<span class="cstat-no" title="statement not covered" >				var latestRestCheckinIndex = jQuery(".checkindenained").eq(jQuery(".checkindenained").length - 1).parentsUntil("[id^='trip0']").eq(jQuery(".checkindenained").eq(jQuery(".checkindenained").length - 1).parentsUntil("[id^='trip0']").length - 1).parent().index();</span>
+&nbsp;
+				/*
+				 * latst flight selected index
+				 *
+				 * ex for above scenario the result is 4
+				 * */
+<span class="cstat-no" title="statement not covered" >				var latestCheckedcheckboxIndex = jQuery(".flightSelCheckBox:checked").parentsUntil("[id^='trip0']").eq(0).parent().index();</span>
+&nbsp;
+				/*
+				 * condition to seq chckin fails
+				 * */
+<span class="cstat-no" title="statement not covered" >				if (latestRestCheckinIndex != -1 &amp;&amp; latestCheckedcheckboxIndex &gt; latestRestCheckinIndex &amp;&amp; this.parameters.SITE_SSCI_SEQ_FLT_SEL.search(/true/i) != "-1") {</span>
+<span class="cstat-no" title="statement not covered" >					errors.push({</span>
+						"localizedMessage": this.label.DisCheckin
+					});
+				}
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in validateSeqSelection function', exception);</span>
+			}
+		},
+&nbsp;
+		onBackClick: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering onBackClick function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.onBackClick();</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in onBackClick function', exception);</span>
+			}
+		},
+&nbsp;
+		getAgeOfCustomerInYears: <span class="fstat-no" title="function not covered" >function(selDOB) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering getAgeOfCustomerInYears function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				var years = 0;</span>
+<span class="cstat-no" title="statement not covered" >				var dCurr = new Date(this.currDate);</span>
+<span class="cstat-no" title="statement not covered" >				if (selDOB.getFullYear() &lt; dCurr.getFullYear()) {</span>
+<span class="cstat-no" title="statement not covered" >					if (selDOB.getMonth() &lt;= dCurr.getMonth()) {</span>
+<span class="cstat-no" title="statement not covered" >						if (selDOB.getMonth() == dCurr.getMonth()) {</span>
+<span class="cstat-no" title="statement not covered" >							if (selDOB.getDate() &lt;= dCurr.getDate()) {</span>
+<span class="cstat-no" title="statement not covered" >								years = dCurr.getFullYear() - selDOB.getFullYear();</span>
+							} else {
+<span class="cstat-no" title="statement not covered" >								years = dCurr.getFullYear() - selDOB.getFullYear() - 1;</span>
+							}
+						} else {
+<span class="cstat-no" title="statement not covered" >							years = dCurr.getFullYear() - selDOB.getFullYear();</span>
+						}
+					} else {
+<span class="cstat-no" title="statement not covered" >						years = dCurr.getFullYear() - selDOB.getFullYear() - 1;</span>
+					}
+				} else {
+<span class="cstat-no" title="statement not covered" >					years = (dCurr.getTime() - selDOB.getTime()) / (1000 * 3600 * 24 * 365);</span>
+				}
+<span class="cstat-no" title="statement not covered" >				return years;</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in getAgeOfCustomerInYears function', exception);</span>
+			}
+		},
+&nbsp;
+		openHTML: <span class="fstat-no" title="function not covered" >function(args, data) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('SelectFlightsScript::Entering openHTML function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+				// calling common method to open HTML page popup
+<span class="cstat-no" title="statement not covered" >				modules.view.merci.common.utils.MCommonScript.openHTML(data);</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('SelectFlightsScript::An error occured in openHTML function', exception);</span>
+			}
+		}
+		//		isUSRoute : function(){
+		//			var cpr = this.moduleCtrl.getCPR();
+		//			var selectedCPR = this.moduleCtrl.getSelectedCPR();
+		//			for(var flightNoIndex in cpr[selectedCPR.journey].flightList){
+		//				var flightNo = cpr[selectedCPR.journey].flightList[flightNoIndex];
+		//				var arrivalcountryCode = cpr[selectedCPR.journey][flightNo].arrivalAirport.airportLocation.countryCode;
+		//				var departurecountryCode = cpr[selectedCPR.journey][flightNo].departureAirport.airportLocation.countryCode;
+		//				if(arrivalcountryCode == "USA" || departurecountryCode == "USA"){
+		//					return true;
+		//				}
+		//			}
+		//			return false;
+		//		}
+	}
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 08 2015 18:25:50 GMT+0530 (India Standard Time)</div>
+</div>
+
+<script src="../prettify.js"></script>
+
+<script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+<script>
+
+    YUI().use('datatable', function (Y) {
+
+        var formatters = {
+          pct: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              try {
+                  return o.value.toFixed(2) + '%';
+              } catch (ex) { return o.value + '%'; }
+          },
+          html: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.record.get(o.column.key + '_html');
+          }
+        },
+          defaultFormatter = function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.value;
+          };
+
+        function getColumns(theadNode) {
+            var colNodes = theadNode.all('tr th'),
+                cols = [],
+                col;
+            colNodes.each(function (colNode) {
+                col = {
+                    key: colNode.getAttribute('data-col'),
+                    label: colNode.get('innerHTML') || ' ',
+                    sortable: !colNode.getAttribute('data-nosort'),
+                    className: colNode.getAttribute('class'),
+                    type: colNode.getAttribute('data-type'),
+                    allowHTML: colNode.getAttribute('data-html') === 'true' || colNode.getAttribute('data-fmt') === 'html'
+                };
+                col.formatter = formatters[colNode.getAttribute('data-fmt')] || defaultFormatter;
+                cols.push(col);
+            });
+            return cols;
+        }
+
+        function getRowData(trNode, cols) {
+            var tdNodes = trNode.all('td'),
+                    i,
+                    row = { classes: {} },
+                    node,
+                    name;
+            for (i = 0; i < cols.length; i += 1) {
+                name = cols[i].key;
+                node = tdNodes.item(i);
+                row[name] = node.getAttribute('data-value') || node.get('innerHTML');
+                row[name + '_html'] = node.get('innerHTML');
+                row.classes[name] = node.getAttribute('class');
+                //Y.log('Name: ' + name + '; Value: ' + row[name]);
+                if (cols[i].type === 'number') { row[name] = row[name] * 1; }
+            }
+            //Y.log(row);
+            return row;
+        }
+
+        function getData(tbodyNode, cols) {
+            var data = [];
+            tbodyNode.all('tr').each(function (trNode) {
+                data.push(getRowData(trNode, cols));
+            });
+            return data;
+        }
+
+        function replaceTable(node) {
+            if (!node) { return; }
+            var cols = getColumns(node.one('thead')),
+                data = getData(node.one('tbody'), cols),
+                table,
+                parent = node.get('parentNode');
+
+            table = new Y.DataTable({
+                columns: cols,
+                data: data,
+                sortBy: 'file'
+            });
+            parent.set('innerHTML', '');
+            table.render(parent);
+        }
+
+        Y.on('domready', function () {
+            replaceTable(Y.one('div.coverage-summary table'));
+            if (typeof prettyPrint === 'function') {
+                prettyPrint();
+            }
+        });
+    });
+</script>
+</body>
+</html>

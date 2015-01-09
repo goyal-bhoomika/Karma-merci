@@ -1,0 +1,1474 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/LocalBoardingPassListScript.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../prettify.css">
+
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Helvetica Neue, Helvetica,Arial;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 10em;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Consolas, Menlo, Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 14px;
+            font-size: 14px;
+            -moz-tab-size: 2;
+            -o-tab-size:  2;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { text-decoration: none; color: #000; }
+        div.coverage-summary a:visited { text-decoration: none; color: #333; }
+        div.coverage-summary a:hover { text-decoration: underline; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: url("http://yui.yahooapis.com/3.6.0/build/datatable-sort/assets/skins/sam/sort-arrow-sprite.png") no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/LocalBoardingPassListScript.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">0.54% <small>(1 / 184)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 64)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">0.54% <small>(1 / 184)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages\</a> &#187; LocalBoardingPassListScript.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">Aria.tplScriptDefinition({
+	$classpath: 'modules.view.merci.segments.servicing.subModules.checkin.ssci.templates.pages.LocalBoardingPassListScript',
+&nbsp;
+	$dependencies: [
+		'modules.view.merci.common.utils.MCommonScript'
+	],
+&nbsp;
+	$constructor: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >		this.utils = modules.view.merci.common.utils.MCommonScript;</span>
+	},
+&nbsp;
+	$prototype: {
+		$dataReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				this.$logInfo('LocalBoardingPassListScript: Entering dataReady function ');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				this.utils.loadSwipeElements();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var json = this.moduleCtrl.getModuleData();</span>
+<span class="cstat-no" title="statement not covered" >				if (json.navigation == true) {</span>
+<span class="cstat-no" title="statement not covered" >					if (json.result != null || json.result != undefined) {</span>
+<span class="cstat-no" title="statement not covered" >						this.jsonObj = json.result;</span>
+<span class="cstat-no" title="statement not covered" >						if ((!this.utils.isEmptyObject(this.jsonObj)) &amp;&amp; (this.jsonObj != null)) {</span>
+<span class="cstat-no" title="statement not covered" >							this.mbpList = this.jsonObj.boardingPassArray;</span>
+<span class="cstat-no" title="statement not covered" >							this.params = this.jsonObj.config;</span>
+<span class="cstat-no" title="statement not covered" >							this.label = this.jsonObj.bpLabels;</span>
+<span class="cstat-no" title="statement not covered" >							this.storage = true;</span>
+						}
+					}
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				this.flightWiseDocs = {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				for (var prodID in this.mbpList) {</span>
+<span class="cstat-no" title="statement not covered" >					var flightID = this.mbpList[prodID].flightID;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (jQuery.isUndefined(this.flightWiseDocs[flightID])) {</span>
+<span class="cstat-no" title="statement not covered" >						this.flightWiseDocs[flightID] = {};</span>
+<span class="cstat-no" title="statement not covered" >						this.flightWiseDocs[flightID][prodID] = this.mbpList[prodID];</span>
+					} else {
+<span class="cstat-no" title="statement not covered" >						this.flightWiseDocs[flightID][prodID] = this.mbpList[prodID];</span>
+					}
+				}
+&nbsp;
+				//To sort the flights based on the departure dates
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var flightList = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				for (var flight in this.flightWiseDocs) {</span>
+<span class="cstat-no" title="statement not covered" >					flightList.push(flight);</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var _this = this;</span>
+<span class="cstat-no" title="statement not covered" >				flightList.sort(<span class="fstat-no" title="function not covered" >function(a, b) {</span></span>
+<span class="cstat-no" title="statement not covered" >					var dateA = new Date(_this.flightWiseDocs[a][Object.keys(_this.flightWiseDocs[a])[0]].depDate);</span>
+<span class="cstat-no" title="statement not covered" >					var dateB = new Date(_this.flightWiseDocs[b][Object.keys(_this.flightWiseDocs[b])[0]].depDate);</span>
+<span class="cstat-no" title="statement not covered" >					return dateA - dateB //sort by date ascending</span>
+				})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				this.sortedFlightList = flightList;</span>
+&nbsp;
+			} catch (_ex) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('LocalBoardingPassListScript: an error has occured in dataReady function');</span>
+			}
+		},
+&nbsp;
+&nbsp;
+		$displayReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				this.$logInfo('LocalBoardingPassListScript: Entering displayReady function ');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				jQuery("#listboxa article").each(<span class="fstat-no" title="function not covered" >function(i, data) {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (jQuery(data).attr("atdelegate")) {</span>
+<span class="cstat-no" title="statement not covered" >						jQuery(data).attr("data-airp-list-onclick", jQuery(data).attr("atdelegate"));</span>
+<span class="cstat-no" title="statement not covered" >						jQuery(data).attr("data-airp-list-forheader_onclick", jQuery(data).attr("ondblclick"));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						jQuery(data).removeAttr("atdelegate");</span>
+<span class="cstat-no" title="statement not covered" >						jQuery(data).removeAttr("ondblclick");</span>
+					}
+&nbsp;
+				});
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if (aria.core.Browser.isIOS) {</span>
+					//eventItem="ontouchstart";
+<span class="cstat-no" title="statement not covered" >					eventItem = "atdelegate";</span>
+&nbsp;
+				} else {
+					//eventItem="onclick";
+<span class="cstat-no" title="statement not covered" >					eventItem = "atdelegate";</span>
+				}
+				/*
+				 * For hiding boarding pass header right arrow img
+				 * */
+<span class="cstat-no" title="statement not covered" >				hideBoardinglistheaderRtarro = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				jQuery("#listboxa:first-child").addClass("is-selected");</span>
+<span class="cstat-no" title="statement not covered" >				var len = document.querySelectorAll("#listboxa&gt;li").length;</span>
+<span class="cstat-no" title="statement not covered" >				var width = len % 2 == 0 ? len * 196 : (len * 196) + 196;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				jQuery("#listboxa").css("width", width + "px");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				for (var i = 0; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >					if (i == 0)</span>
+<span class="cstat-no" title="statement not covered" >						jQuery("#Indicator_details").append("&lt;li class=\"is-selected\"&gt;&lt;/li&gt;");</span>
+					else
+<span class="cstat-no" title="statement not covered" >						jQuery("#Indicator_details").append("&lt;li&gt;&lt;/li&gt;");</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				setTimeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					positionCarrousel($('.carrousel-full'));</span>
+<span class="cstat-no" title="statement not covered" >					lightSelectedUp();</span>
+<span class="cstat-no" title="statement not covered" >					changeTitle();</span>
+				}, 400);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				jQuery(".carrousel-full").swipe({</span>
+					swipeLeft: <span class="fstat-no" title="function not covered" >function(event, direction, distance, duration, fingerCount) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						jQuery(".removeTripButton").each(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >							$(this).addClass("displayNone");</span>
+						});
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						if (is_clickedOn_list == itemCounter) {</span>
+<span class="cstat-no" title="statement not covered" >							is_clickedOn_list = -1;</span>
+<span class="cstat-no" title="statement not covered" >							return;</span>
+						}
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						var carrouselToMove = $(this).children('ul');</span>
+<span class="cstat-no" title="statement not covered" >						var totalSec = $(this).children('ul').children().length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						var middlePoint = $(document).width() / 2;</span>
+&nbsp;
+						/*
+						 * Condition to check if it is last trip and move left
+						 */
+<span class="cstat-no" title="statement not covered" >						if (itemCounter &lt; (totalSec - 1)) {</span>
+<span class="cstat-no" title="statement not covered" >							moveCarrousel_left(carrouselToMove);</span>
+						} else {
+							/*
+							 * For provide not moving effect
+							 */
+<span class="cstat-no" title="statement not covered" >							carrouselToMove.animate({</span>
+								left: '-=15px'
+							}, 300);
+<span class="cstat-no" title="statement not covered" >							carrouselToMove.animate({</span>
+								left: '+=15px'
+							}, 300);
+						}
+					},
+&nbsp;
+&nbsp;
+					swipeRight: <span class="fstat-no" title="function not covered" >function(event, direction, distance, duration, fingerCount) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						jQuery(".removeTripButton").each(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >							$(this).addClass("displayNone");</span>
+						});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						if (is_clickedOn_list == itemCounter) {</span>
+<span class="cstat-no" title="statement not covered" >							is_clickedOn_list = -1;</span>
+<span class="cstat-no" title="statement not covered" >							return;</span>
+						}
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						var carrouselToMove = $(this).children('ul');</span>
+<span class="cstat-no" title="statement not covered" >						var totalSec = $(this).children('ul').children().length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						var middlePoint = $(document).width() / 2;</span>
+&nbsp;
+						/*
+						 * Condition to check if it is first trip and move right
+						 * */
+<span class="cstat-no" title="statement not covered" >						if (itemCounter &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >							moveCarrousel_right(carrouselToMove);</span>
+						} else {
+							/*
+							 * For provide not moving effect
+							 * */
+<span class="cstat-no" title="statement not covered" >							carrouselToMove.animate({</span>
+								left: '+=15px'
+							}, 300);
+<span class="cstat-no" title="statement not covered" >							carrouselToMove.animate({</span>
+								left: '-=15px'
+							}, 300);
+&nbsp;
+						}
+&nbsp;
+					}
+				});
+&nbsp;
+&nbsp;
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('LocalBoardingPassListScript::An error occured in displayReady function',</span>
+					exception);
+			}
+		},
+&nbsp;
+		$viewReady: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('LocalBoardingPassListScript::Entering Viewready function');</span>
+&nbsp;
+&nbsp;
+&nbsp;
+		},
+&nbsp;
+&nbsp;
+&nbsp;
+		displayBPforSelectedFlights: <span class="fstat-no" title="function not covered" >function(event, args) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('LocalBoardingPassListScript::Entering displayBPforSelectedFlights function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+				//To Check if the remove icon is enabled
+<span class="cstat-no" title="statement not covered" >				var flight = args.flight;</span>
+<span class="cstat-no" title="statement not covered" >				var removeButton = "remove_" + flight;</span>
+<span class="cstat-no" title="statement not covered" >				if (!($('#' + removeButton).hasClass("displayNone"))) {</span>
+<span class="cstat-no" title="statement not covered" >					return null;</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var docs = args.docs;</span>
+<span class="cstat-no" title="statement not covered" >				var jsonBP = this.moduleCtrl.getModuleData();</span>
+<span class="cstat-no" title="statement not covered" >				jsonBP.boardingPasses = docs;</span>
+<span class="cstat-no" title="statement not covered" >				jsonBP.bpParams = this.params;</span>
+<span class="cstat-no" title="statement not covered" >				jsonBP.bpLabels = this.label;</span>
+<span class="cstat-no" title="statement not covered" >				this.moduleCtrl.navigate(null, "merci-checkin-MSSCILocalBoardingPass_A");</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('LocalBoardingPassListScript::An error occured in displayBPforSelectedFlights function', exception);</span>
+			}
+		},
+&nbsp;
+		getWeekDayUTC: <span class="fstat-no" title="function not covered" >function(date) {</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				this.$logInfo('Entering getWeekDayUTC function');</span>
+<span class="cstat-no" title="statement not covered" >				var weekday = new Array(7);</span>
+<span class="cstat-no" title="statement not covered" >				weekday[0] = "Sunday";</span>
+<span class="cstat-no" title="statement not covered" >				weekday[1] = "Monday";</span>
+<span class="cstat-no" title="statement not covered" >				weekday[2] = "Tuesday";</span>
+<span class="cstat-no" title="statement not covered" >				weekday[3] = "Wednesday";</span>
+<span class="cstat-no" title="statement not covered" >				weekday[4] = "Thursday";</span>
+<span class="cstat-no" title="statement not covered" >				weekday[5] = "Friday";</span>
+<span class="cstat-no" title="statement not covered" >				weekday[6] = "Saturday";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return weekday[date.getUTCDay()];</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('An error occured in getWeekDayUTC function', exception);</span>
+			}
+&nbsp;
+		},
+&nbsp;
+		getMonthUTC: <span class="fstat-no" title="function not covered" >function(date) {</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				this.$logInfo('Entering getMonth function');</span>
+<span class="cstat-no" title="statement not covered" >				var myProp = "";</span>
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 0) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Jan"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 1) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Feb"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 2) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Mar"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 3) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Apr"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 4) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "May"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 5) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Jun"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 6) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Jul"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 7) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Aug"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 8) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Sep"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 9) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Oct"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 10) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Nov"</span>
+				};
+<span class="cstat-no" title="statement not covered" >				if (date.getUTCMonth() == 11) {</span>
+<span class="cstat-no" title="statement not covered" >					myProp = "Dec"</span>
+				};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return myProp;</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError(</span>
+					'An error occured in getMonth function',
+					exception);
+			}
+&nbsp;
+		},
+&nbsp;
+		onLongPressFlight: <span class="fstat-no" title="function not covered" >function(event, args) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('LocalBoardingPassListScript::Entering onLongPressFlight function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >				var trip_longpressed = args.flight;</span>
+<span class="cstat-no" title="statement not covered" >				var buttonid = "remove_" + trip_longpressed;</span>
+<span class="cstat-no" title="statement not covered" >				$('#' + buttonid).removeClass("displayNone");</span>
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('LocalBoardingPassListScript::An error occured in onLongPressFlight function', exception);</span>
+			}
+		},
+&nbsp;
+		onRemoveClick: <span class="fstat-no" title="function not covered" >function(event, args) {</span>
+<span class="cstat-no" title="statement not covered" >			this.$logInfo('LocalBoardingPassListScript::Entering onRemoveClick function');</span>
+<span class="cstat-no" title="statement not covered" >			try {</span>
+<span class="cstat-no" title="statement not covered" >				event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >				var prodIDstoRemove = Object.keys(args.mbps);</span>
+<span class="cstat-no" title="statement not covered" >				var _this = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				jQuery(document).scrollTop("0");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				jQuery(".popupBGmask").removeClass("displayNone").addClass("displayBlock");</span>
+<span class="cstat-no" title="statement not covered" >				jQuery("#cancelConf").removeClass("displayNone").addClass("displayBlock");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				jQuery("#cancelConf #cancelButton").click(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >					prodIDstoRemove = null;</span>
+<span class="cstat-no" title="statement not covered" >					jQuery(".popupBGmask").removeClass("displayBlock").addClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >					jQuery('#cancelConf').removeClass("displayBlock").addClass("displayNone");</span>
+				});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				jQuery("#cancelConf #okButton").click(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >					jQuery(".popupBGmask").removeClass("displayBlock").addClass("displayNone");</span>
+<span class="cstat-no" title="statement not covered" >					jQuery('#cancelConf').removeClass("displayBlock").addClass("displayNone");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (!_this.utils.isEmptyObject(_this.mbpList)) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						for (var key in _this.mbpList) {</span>
+<span class="cstat-no" title="statement not covered" >							if (prodIDstoRemove.indexOf(key) != -1) {</span>
+<span class="cstat-no" title="statement not covered" >								delete _this.mbpList[key];</span>
+<span class="cstat-no" title="statement not covered" >								_this.utils.storeLocalInDevice(merciAppData.DB_BOARDINGPASS, _this.jsonObj, "overwrite", "json");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >								if (jsonResponse.ui.cntBoardingPass &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >									_this.$json.setValue(jsonResponse.ui, "cntBoardingPass", jsonResponse.ui.cntBoardingPass - 1);</span>
+								}
+&nbsp;
+							}
+						}
+					}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (jsonResponse.ui.cntBoardingPass == 0) {</span>
+<span class="cstat-no" title="statement not covered" >						_this.utils.sendNavigateRequest(null, 'gettripFlow.action', _this);</span>
+					} else {
+<span class="cstat-no" title="statement not covered" >						_this.flightWiseDocs = {};</span>
+<span class="cstat-no" title="statement not covered" >						for (var prodID in _this.mbpList) {</span>
+<span class="cstat-no" title="statement not covered" >							var flightID = _this.mbpList[prodID].flightID;</span>
+<span class="cstat-no" title="statement not covered" >							if (jQuery.isUndefined(_this.flightWiseDocs[flightID])) {</span>
+<span class="cstat-no" title="statement not covered" >								_this.flightWiseDocs[flightID] = {};</span>
+<span class="cstat-no" title="statement not covered" >								_this.flightWiseDocs[flightID][prodID] = _this.mbpList[prodID];</span>
+							} else {
+<span class="cstat-no" title="statement not covered" >								_this.flightWiseDocs[flightID][prodID] = _this.mbpList[prodID];</span>
+							}
+						}
+<span class="cstat-no" title="statement not covered" >						var flightList = [];</span>
+<span class="cstat-no" title="statement not covered" >						for (var flight in _this.flightWiseDocs) {</span>
+<span class="cstat-no" title="statement not covered" >							flightList.push(flight);</span>
+						}
+<span class="cstat-no" title="statement not covered" >						flightList.sort(<span class="fstat-no" title="function not covered" >function(a, b) {</span></span>
+<span class="cstat-no" title="statement not covered" >							var dateA = new Date(_this.flightWiseDocs[a][Object.keys(_this.flightWiseDocs[a])[0]].depDate);</span>
+<span class="cstat-no" title="statement not covered" >							var dateB = new Date(_this.flightWiseDocs[b][Object.keys(_this.flightWiseDocs[b])[0]].depDate);</span>
+<span class="cstat-no" title="statement not covered" >							return dateA - dateB //sort by date ascending</span>
+						})
+<span class="cstat-no" title="statement not covered" >						_this.sortedFlightList = flightList;</span>
+<span class="cstat-no" title="statement not covered" >						_this.$refresh();</span>
+					}
+				});
+&nbsp;
+			} catch (exception) {
+<span class="cstat-no" title="statement not covered" >				this.$logError('LocalBoardingPassListScript::An error occured in onRemoveClick function', exception);</span>
+			}
+&nbsp;
+		}
+&nbsp;
+&nbsp;
+	}
+})</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 08 2015 18:25:50 GMT+0530 (India Standard Time)</div>
+</div>
+
+<script src="../prettify.js"></script>
+
+<script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+<script>
+
+    YUI().use('datatable', function (Y) {
+
+        var formatters = {
+          pct: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              try {
+                  return o.value.toFixed(2) + '%';
+              } catch (ex) { return o.value + '%'; }
+          },
+          html: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.record.get(o.column.key + '_html');
+          }
+        },
+          defaultFormatter = function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.value;
+          };
+
+        function getColumns(theadNode) {
+            var colNodes = theadNode.all('tr th'),
+                cols = [],
+                col;
+            colNodes.each(function (colNode) {
+                col = {
+                    key: colNode.getAttribute('data-col'),
+                    label: colNode.get('innerHTML') || ' ',
+                    sortable: !colNode.getAttribute('data-nosort'),
+                    className: colNode.getAttribute('class'),
+                    type: colNode.getAttribute('data-type'),
+                    allowHTML: colNode.getAttribute('data-html') === 'true' || colNode.getAttribute('data-fmt') === 'html'
+                };
+                col.formatter = formatters[colNode.getAttribute('data-fmt')] || defaultFormatter;
+                cols.push(col);
+            });
+            return cols;
+        }
+
+        function getRowData(trNode, cols) {
+            var tdNodes = trNode.all('td'),
+                    i,
+                    row = { classes: {} },
+                    node,
+                    name;
+            for (i = 0; i < cols.length; i += 1) {
+                name = cols[i].key;
+                node = tdNodes.item(i);
+                row[name] = node.getAttribute('data-value') || node.get('innerHTML');
+                row[name + '_html'] = node.get('innerHTML');
+                row.classes[name] = node.getAttribute('class');
+                //Y.log('Name: ' + name + '; Value: ' + row[name]);
+                if (cols[i].type === 'number') { row[name] = row[name] * 1; }
+            }
+            //Y.log(row);
+            return row;
+        }
+
+        function getData(tbodyNode, cols) {
+            var data = [];
+            tbodyNode.all('tr').each(function (trNode) {
+                data.push(getRowData(trNode, cols));
+            });
+            return data;
+        }
+
+        function replaceTable(node) {
+            if (!node) { return; }
+            var cols = getColumns(node.one('thead')),
+                data = getData(node.one('tbody'), cols),
+                table,
+                parent = node.get('parentNode');
+
+            table = new Y.DataTable({
+                columns: cols,
+                data: data,
+                sortBy: 'file'
+            });
+            parent.set('innerHTML', '');
+            table.render(parent);
+        }
+
+        Y.on('domready', function () {
+            replaceTable(Y.one('div.coverage-summary table'));
+            if (typeof prettyPrint === 'function') {
+                prettyPrint();
+            }
+        });
+    });
+</script>
+</body>
+</html>

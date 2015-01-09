@@ -1,0 +1,2500 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./static/modules/view/merci/common/utils/URLManager.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../prettify.css">
+
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Helvetica Neue, Helvetica,Arial;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 10em;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Consolas, Menlo, Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 14px;
+            font-size: 14px;
+            -moz-tab-size: 2;
+            -o-tab-size:  2;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { text-decoration: none; color: #000; }
+        div.coverage-summary a:visited { text-decoration: none; color: #333; }
+        div.coverage-summary a:hover { text-decoration: underline; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: url("http://yui.yahooapis.com/3.6.0/build/datatable-sort/assets/skins/sam/sort-arrow-sprite.png") no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./static/modules/view/merci/common/utils/URLManager.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">0.37% <small>(1 / 267)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 214)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">0.37% <small>(1 / 267)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./static/modules/view/merci/common/utils\</a> &#187; URLManager.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">Aria.classDefinition({
+	$classpath: 'modules.view.merci.common.utils.URLManager',
+	$dependencies: [
+		'aria.utils.HashManager',
+		'modules.view.merci.common.utils.MCommonScript'
+	],
+	$singleton: true,
+	$prototype: {
+&nbsp;
+		/* Get SITE code, if available */
+		__getSiteCode: <span class="fstat-no" title="function not covered" >function() {</span>
+			// if not in json read from URL
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null || jsonResponse.data.framework.baseParams == null) {</span>
+<span class="cstat-no" title="statement not covered" >				return this.getStringParam().SITE;</span>
+			}
+&nbsp;
+			// if available in json
+<span class="cstat-no" title="statement not covered" >			return jsonResponse.data.framework.baseParams[11];</span>
+		},
+&nbsp;
+		/* Get COUNTRY_SITE, if available */
+		__getCountrySite: <span class="fstat-no" title="function not covered" >function() {</span>
+			// if not in json read from URL
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null || jsonResponse.data.framework.baseParams == null) {</span>
+<span class="cstat-no" title="statement not covered" >				return this.getStringParam().COUNTRY_SITE;</span>
+			}
+&nbsp;
+			// if available in json
+<span class="cstat-no" title="statement not covered" >			return jsonResponse.data.framework.baseParams[13];</span>
+&nbsp;
+		},
+&nbsp;
+		/* Get language code, if available */
+		__getLanguageCode: <span class="fstat-no" title="function not covered" >function() {</span>
+			// if not in json read from URL
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null || jsonResponse.data.framework.baseParams == null) {</span>
+&nbsp;
+				// for community app custom features
+<span class="cstat-no" title="statement not covered" >				if (jsonResponse.data.custom_framework != null &amp;&amp; jsonResponse.data.custom_framework.baseParams != null) {</span>
+<span class="cstat-no" title="statement not covered" >					return jsonResponse.data.custom_framework.baseParams[12];</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return this.getStringParam().LANGUAGE;</span>
+			}
+&nbsp;
+			// if available in json
+<span class="cstat-no" title="statement not covered" >			return jsonResponse.data.framework.baseParams[12];</span>
+		},
+&nbsp;
+		/* Get client, if available */
+		__getClient: <span class="fstat-no" title="function not covered" >function() {</span>
+			// if not in json read from URL
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null || jsonResponse.data.framework.baseParams == null) {</span>
+<span class="cstat-no" title="statement not covered" >				return this.getStringParam().client;</span>
+			}
+&nbsp;
+			// if available in json
+<span class="cstat-no" title="statement not covered" >			return jsonResponse.data.framework.baseParams[14];</span>
+		},
+&nbsp;
+		/* Get ENABLE_DEVICECAL, if available */
+		__getEnableDeviceCal: <span class="fstat-no" title="function not covered" >function() {</span>
+			// if not in json read from URL
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null || jsonResponse.data.framework.baseParams == null) {</span>
+<span class="cstat-no" title="statement not covered" >				return this.getStringParam().ENABLE_DEVICECAL;</span>
+			}
+&nbsp;
+			// if available in json
+<span class="cstat-no" title="statement not covered" >			return jsonResponse.data.framework.baseParams[15];</span>
+		},
+&nbsp;
+		/**
+		 * reads the current URL and extract the AeRE site name from it,
+		 * for local platforms this will correspond to 'dev'
+		 */
+		__getSiteName: <span class="fstat-no" title="function not covered" >function() {</span>
+			// if not in json read from URL
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null || jsonResponse.data.framework.baseParams == null) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var url = document.URL;</span>
+&nbsp;
+				// do a substring on base URL to get site name
+<span class="cstat-no" title="statement not covered" >				url = url.substring(url.indexOf('//') + 2, url.length);</span>
+<span class="cstat-no" title="statement not covered" >				url = url.substring(url.indexOf('/') + 1, url.length);</span>
+<span class="cstat-no" title="statement not covered" >				url = url.substring(url.indexOf('/') + 1, url.length);</span>
+<span class="cstat-no" title="statement not covered" >				url = url.substring(0, url.indexOf('/'));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return url;</span>
+			}
+&nbsp;
+			// if available in json
+<span class="cstat-no" title="statement not covered" >			return jsonResponse.data.framework.baseParams[4];</span>
+		},
+&nbsp;
+		/**
+		 * reads the current URL and extract the domain name,
+		 * for local platforms it will return 'localhost'
+		 */
+		__getDomainName: <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+			// if not in json read from URL
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null || jsonResponse.data.framework.baseParams == null) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var url = document.URL;</span>
+&nbsp;
+				// do a substring on base URL to get domain name
+<span class="cstat-no" title="statement not covered" >				url = url.substring(url.indexOf('//') + 2, url.length);</span>
+<span class="cstat-no" title="statement not covered" >				url = url.substring(0, url.indexOf('/'));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return url;</span>
+			}
+&nbsp;
+			// if available in json
+<span class="cstat-no" title="statement not covered" >			return jsonResponse.data.framework.baseParams[1];</span>
+		},
+&nbsp;
+		/**
+		 * reads the current URL and extract the current protocol used,
+		 * if isSecured is passed as true it will return 'https' irrespective of current protocol
+		 * @param isSecured if true, method will return 'https'
+		 */
+		__getProtocol: <span class="fstat-no" title="function not covered" >function(isSecured) {</span>
+&nbsp;
+			// if secured
+<span class="cstat-no" title="statement not covered" >			if (isSecured == true) {</span>
+<span class="cstat-no" title="statement not covered" >				return 'https';</span>
+			}
+&nbsp;
+			// if not in json read from URL
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null || jsonResponse.data.framework.baseParams == null) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var url = document.URL;</span>
+<span class="cstat-no" title="statement not covered" >				url = url.substring(0, url.indexOf('://'));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return url;</span>
+			}
+&nbsp;
+			// if available in json
+<span class="cstat-no" title="statement not covered" >			return jsonResponse.data.framework.baseParams[0];</span>
+		},
+&nbsp;
+		keepExternalAppAlive: <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+			// if in JSON then continue
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null ||</span>
+				jsonResponse.data.framework.keepAlive != null) {
+<span class="cstat-no" title="statement not covered" >				var img = new Image();</span>
+<span class="cstat-no" title="statement not covered" >				img.src = jsonResponse.data.framework.keepAlive;</span>
+			}
+		},
+&nbsp;
+		/** CR 7107950 
+		 *	This function sets the required parameters as a URL
+		 */
+		__getLoyaltyInformation: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			var params = '';</span>
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework != null) {</span>
+<span class="cstat-no" title="statement not covered" >				if (jsonResponse.data.framework.baseParams[16] != null) {</span>
+<span class="cstat-no" title="statement not covered" >					var airlineName = jsonResponse.data.framework.baseParams[16];</span>
+<span class="cstat-no" title="statement not covered" >					var an = "&amp;PREF_AIR_FREQ_AIRLINE_1_1=" + airlineName;</span>
+<span class="cstat-no" title="statement not covered" >					params = params + an;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (jsonResponse.data.framework.baseParams[17] != null) {</span>
+<span class="cstat-no" title="statement not covered" >					var miles = jsonResponse.data.framework.baseParams[17];</span>
+<span class="cstat-no" title="statement not covered" >					var m = "&amp;PREF_AIR_FREQ_MILES_1_1=" + miles;</span>
+<span class="cstat-no" title="statement not covered" >					params = params + m;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (jsonResponse.data.framework.baseParams[18] != null) {</span>
+<span class="cstat-no" title="statement not covered" >					var tier = jsonResponse.data.framework.baseParams[18];</span>
+<span class="cstat-no" title="statement not covered" >					var t = "&amp;PREF_AIR_FREQ_LEVEL_1_1=" + tier;</span>
+<span class="cstat-no" title="statement not covered" >					params = params + t;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (jsonResponse.data.framework.baseParams[19] != null) {</span>
+<span class="cstat-no" title="statement not covered" >					var title = jsonResponse.data.framework.baseParams[19];</span>
+<span class="cstat-no" title="statement not covered" >					var tl = "&amp;PREF_AIR_FREQ_OWNER_TITLE_1_1=" + title;</span>
+<span class="cstat-no" title="statement not covered" >					params = params + tl;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (jsonResponse.data.framework.baseParams[20] != null) {</span>
+<span class="cstat-no" title="statement not covered" >					var firstName = jsonResponse.data.framework.baseParams[20];</span>
+<span class="cstat-no" title="statement not covered" >					var fname = "&amp;PREF_AIR_FREQ_OWNER_FIRSTNAME_1_1=" + firstName;</span>
+<span class="cstat-no" title="statement not covered" >					params = params + fname;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (jsonResponse.data.framework.baseParams[21] != null) {</span>
+<span class="cstat-no" title="statement not covered" >					var lastName = jsonResponse.data.framework.baseParams[21];</span>
+<span class="cstat-no" title="statement not covered" >					var lname = "&amp;PREF_AIR_FREQ_OWNER_LASTNAME_1_1=" + lastName;</span>
+<span class="cstat-no" title="statement not covered" >					params = params + lname;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (jsonResponse.data.framework.baseParams[22] != null) {</span>
+<span class="cstat-no" title="statement not covered" >					var programmeNo = jsonResponse.data.framework.baseParams[22];</span>
+<span class="cstat-no" title="statement not covered" >					var pno = "&amp;PREF_AIR_FREQ_NUMBER_1_1=" + programmeNo;</span>
+<span class="cstat-no" title="statement not covered" >					params = params + pno;</span>
+				}
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return params;</span>
+&nbsp;
+		},
+&nbsp;
+		/* CR 7107950 */
+&nbsp;
+		/**
+		 * this function reads the current URL and returns an Object with key value mapping.
+		 * Get Parameters can be accesses using the object as in example retObject.getParamName
+		 */
+		getStringParam: <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var query_string = {};</span>
+<span class="cstat-no" title="statement not covered" >			var query = Aria.$window.location.search.substring(1);</span>
+<span class="cstat-no" title="statement not covered" >			var vars = query.split("&amp;");</span>
+<span class="cstat-no" title="statement not covered" >			for (var i = 0; i &lt; vars.length; i++) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var pair = vars[i].split("=");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if (typeof query_string[pair[0]] === "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >					query_string[pair[0]] = pair[1];</span>
+				} else <span class="cstat-no" title="statement not covered" >if (typeof query_string[pair[0]] === "string") {</span>
+<span class="cstat-no" title="statement not covered" >					var arr = [query_string[pair[0]], pair[1]];</span>
+<span class="cstat-no" title="statement not covered" >					query_string[pair[0]] = arr;</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					query_string[pair[0]].push(pair[1]);</span>
+				}
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return query_string;</span>
+		},
+&nbsp;
+		/**
+		 * return array of parameters as send from server
+		 * Get the list of parameters for the URL base.
+		 * The indexes are:
+		 * 0: The HTTP protocol value.
+		 * 1: The host-name value.
+		 * 2: The port value.
+		 * 3: The context path (web-application name). Start with a slash.
+		 * 4: The site name.
+		 * 5: The static version or the skin.
+		 * 6: The request URI. Start with a slash.
+		 * 7: The request URL before the forward without the web-application name. Start with a slash.
+		 * 8: The query.
+		 * 9: The JavaScript library version.
+		 * 10: The URL prefix. Start with a slash.
+		 * 11: The SITE code
+		 * 12: The LANGUAGE code
+		 * 13: The COUNTRY_SITE value
+		 * 14: The client parameter value
+		 */
+		getBaseParams: <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework != null &amp;&amp; jsonResponse.data.framework.baseParams != null) {</span>
+<span class="cstat-no" title="statement not covered" >				return jsonResponse.data.framework.baseParams;</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var baseParams = new Array();</span>
+<span class="cstat-no" title="statement not covered" >			baseParams.push(this.__getProtocol(false)); </span>// protocol
+<span class="cstat-no" title="statement not covered" >			baseParams.push(this.__getDomainName()); </span>// host-name
+<span class="cstat-no" title="statement not covered" >			baseParams.push(''); </span>// port no
+<span class="cstat-no" title="statement not covered" >			baseParams.push(''); </span>// web application name
+<span class="cstat-no" title="statement not covered" >			baseParams.push(this.__getSiteName()); </span>// site name
+<span class="cstat-no" title="statement not covered" >			baseParams.push(''); </span>// static version
+<span class="cstat-no" title="statement not covered" >			baseParams.push(''); </span>// request URI
+<span class="cstat-no" title="statement not covered" >			baseParams.push(''); </span>// request URL
+<span class="cstat-no" title="statement not covered" >			baseParams.push(''); </span>// query
+<span class="cstat-no" title="statement not covered" >			baseParams.push(''); </span>// javascript library version
+<span class="cstat-no" title="statement not covered" >			baseParams.push(''); </span>// URL prefix
+<span class="cstat-no" title="statement not covered" >			baseParams.push(this.__getSiteCode()); </span>// Site Code
+<span class="cstat-no" title="statement not covered" >			baseParams.push(this.__getLanguageCode()); </span>// Language Code
+<span class="cstat-no" title="statement not covered" >			baseParams.push(this.__getCountrySite()); </span>// Country Site
+<span class="cstat-no" title="statement not covered" >			baseParams.push(this.__getClient()); </span>// client
+<span class="cstat-no" title="statement not covered" >			baseParams.push(this.__getEnableDeviceCal()); </span>// ENABLE_DEVICECAL
+<span class="cstat-no" title="statement not covered" >			return baseParams;</span>
+		},
+&nbsp;
+		/**
+		 * returns the URL with domain and site name,
+		 * action is not added to this URL
+		 * @param isSecured if true, URL will be created with https
+		 */
+		getModuleName: <span class="fstat-no" title="function not covered" >function(isSecured) {</span>
+<span class="cstat-no" title="statement not covered" >			var methodName = this.__getProtocol(isSecured) + '://' + this.__getDomainName() + '/plnext/' + this.__getSiteName();</span>
+<span class="cstat-no" title="statement not covered" >			return methodName;</span>
+		},
+&nbsp;
+		/**
+		 * return the name of action along with default parameters like SITE and language appended,
+		 * default params will be appended only if defaultParams is passed as true
+		 * @param action name of action
+		 * @param settings JSON object with setting parameter like defaultParams and appendSession
+		 */
+		getActionName: <span class="fstat-no" title="function not covered" >function(action, settings) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var actionName = action;</span>
+&nbsp;
+			// getting settings value
+<span class="cstat-no" title="statement not covered" >			var appendSession = true;</span>
+<span class="cstat-no" title="statement not covered" >			if (settings != null &amp;&amp; settings.appendSession != null) {</span>
+<span class="cstat-no" title="statement not covered" >				appendSession = settings.appendSession;</span>
+			}
+&nbsp;
+			// appending session ID to URL
+<span class="cstat-no" title="statement not covered" >			if (appendSession == true &amp;&amp; jsonResponse.data != null &amp;&amp; jsonResponse.data.framework != null &amp;&amp; jsonResponse.data.framework.sessionId != null) {</span>
+<span class="cstat-no" title="statement not covered" >				actionName += ";jsessionid=" + jsonResponse.data.framework.sessionId;</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var defaultParams = true;</span>
+<span class="cstat-no" title="statement not covered" >			if (settings != null &amp;&amp; settings.defaultParams != null) {</span>
+<span class="cstat-no" title="statement not covered" >				defaultParams = settings.defaultParams;</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (defaultParams == true) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if (actionName.indexOf('?') !== -1) {</span>
+<span class="cstat-no" title="statement not covered" >					actionName += '&amp;';</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					actionName += '?';</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				actionName += 'SITE=' + this.__getSiteCode();</span>
+<span class="cstat-no" title="statement not covered" >				actionName += '&amp;LANGUAGE=' + this.__getLanguageCode();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var client = this.__getClient();</span>
+<span class="cstat-no" title="statement not covered" >				if (client != undefined) {</span>
+<span class="cstat-no" title="statement not covered" >					actionName += '&amp;client=' + client;</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				var countrySite = this.__getCountrySite();</span>
+<span class="cstat-no" title="statement not covered" >				if (countrySite != undefined) {</span>
+<span class="cstat-no" title="statement not covered" >					actionName += '&amp;COUNTRY_SITE=' + countrySite;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				var enableDeviceCal = this.__getEnableDeviceCal();</span>
+<span class="cstat-no" title="statement not covered" >				if (enableDeviceCal != undefined) {</span>
+<span class="cstat-no" title="statement not covered" >					actionName += '&amp;ENABLE_DEVICECAL=' + enableDeviceCal;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				var externalId = this.__getExternalId();</span>
+<span class="cstat-no" title="statement not covered" >				if (externalId != undefined &amp;&amp; externalId != '') {</span>
+<span class="cstat-no" title="statement not covered" >					actionName += '&amp;EXTERNAL_ID=' + externalId;</span>
+				}
+			}
+&nbsp;
+			// return
+<span class="cstat-no" title="statement not covered" >			return actionName;</span>
+		},
+&nbsp;
+		/**
+		 * creates a complete URL used to make server request
+		 * @param action name of action
+		 * @param settings JSON object with setting parameter like defaultParams and appendSession
+		 */
+		getFullURL: <span class="fstat-no" title="function not covered" >function(action, settings) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var isSecured = false;</span>
+<span class="cstat-no" title="statement not covered" >			if (settings != null &amp;&amp; settings.isSecured != null) {</span>
+<span class="cstat-no" title="statement not covered" >				isSecured = settings.isSecured;</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return this.getModuleName(isSecured) + '/' + this.getActionName(action, settings);</span>
+		},
+&nbsp;
+		/**
+		 * logs error to server
+		 * @param data JSON object with all the required parameters to send error to server
+		 *		Expected Params:
+		 *			msg: error message
+		 *          stack: error stack [OPTIONAL],
+		 *          type: type of error i.e. E-&gt; Error, I-&gt; Info, W-&gt; warning, D-&gt; debug
+		 *          file: name of template
+		 *          method: name of method where error occurred
+		 */
+		logError: <span class="fstat-no" title="function not covered" >function(data) {</span>
+<span class="cstat-no" title="statement not covered" >			var request = {</span>
+				url: this.getFullURL('MAriaLogMessage.action', null),
+				type: 'POST',
+				data: 'MSG_INFO=' + JSON.stringify(data),
+				dataType: 'text',
+				crossDomain: 'true',
+				success: <span class="fstat-no" title="function not covered" >function(resp) {</span>
+					// log it on browser console
+<span class="cstat-no" title="statement not covered" >					console.log('Error Logged: ' + data.msg);</span>
+				}
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			$.ajax(request);</span>
+		},
+&nbsp;
+		/**
+		 * function triggered when hash tag in URL is changed
+		 * this is implemented to exit app when back button is pressed from 1st page
+		 */
+		onHashChange: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			var hashPage = aria.utils.HashManager.getHashString();</span>
+<span class="cstat-no" title="statement not covered" >			if (hashPage == null || hashPage == '') {</span>
+<span class="cstat-no" title="statement not covered" >				history.go(-1);</span>
+			} else {
+<span class="cstat-no" title="statement not covered" >				var calDiv = document.getElementById("ui-datepicker-div");</span>
+<span class="cstat-no" title="statement not covered" >				if (calDiv) {</span>
+<span class="cstat-no" title="statement not covered" >					calDiv.style.display = "none";</span>
+				}
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var utils = modules.view.merci.common.utils.MCommonScript;</span>
+<span class="cstat-no" title="statement not covered" >			if (utils.isRequestFromApps() &amp;&amp; typeof merciAppData != 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >				if (hashPage.indexOf('merci') == -1) {</span>
+&nbsp;
+					// remove merci css files
+<span class="cstat-no" title="statement not covered" >					this.removeCssFiles(merciAppData["cssFiles"]);</span>
+&nbsp;
+&nbsp;
+					// remove rtl css for merci
+<span class="cstat-no" title="statement not covered" >					this.removeCssFiles(merciAppData["rtlCssFiles"]);</span>
+&nbsp;
+&nbsp;
+					// add custom package css files
+<span class="cstat-no" title="statement not covered" >					this.addCssFiles(merciAppData["customCssFiles"]);</span>
+&nbsp;
+&nbsp;
+					// add rtl css files for custom package
+<span class="cstat-no" title="statement not covered" >					if (utils.isRTLLanguage()) {</span>
+<span class="cstat-no" title="statement not covered" >						this.addCssFiles(merciAppData["rtlCustomCssFiles"]);</span>
+					}
+&nbsp;
+				} else {
+&nbsp;
+					// remove custom package css files
+<span class="cstat-no" title="statement not covered" >					this.removeCssFiles(merciAppData["customCssFiles"]);</span>
+&nbsp;
+					// remove rtl css for merci
+<span class="cstat-no" title="statement not covered" >					this.removeCssFiles(merciAppData["rtlCssFiles"]);</span>
+&nbsp;
+					// remove rtl css files for custom package
+<span class="cstat-no" title="statement not covered" >					this.removeCssFiles(merciAppData["rtlCustomCssFiles"]);</span>
+&nbsp;
+&nbsp;
+					// add merci css files
+<span class="cstat-no" title="statement not covered" >					this.addCssFiles(merciAppData["cssFiles"]);</span>
+&nbsp;
+&nbsp;
+					// add rtl css files for custom package
+<span class="cstat-no" title="statement not covered" >					if (utils.isRTLLanguage()) {</span>
+<span class="cstat-no" title="statement not covered" >						this.addCssFiles(merciAppData["rtlCssFiles"]);</span>
+					}
+				}
+			}
+		},
+&nbsp;
+		/**
+		 * adds a css file to DOM
+		 * @param args
+		 */
+		addCssFiles: <span class="fstat-no" title="function not covered" >function(args) {</span>
+<span class="cstat-no" title="statement not covered" >			if (args != null) {</span>
+<span class="cstat-no" title="statement not covered" >				for (var key in args) {</span>
+<span class="cstat-no" title="statement not covered" >					if (args.hasOwnProperty(key)) {</span>
+<span class="cstat-no" title="statement not covered" >						if (args[key] != null &amp;&amp; args[key] != '') {</span>
+<span class="cstat-no" title="statement not covered" >							var element = document.getElementById(args[key].id);</span>
+<span class="cstat-no" title="statement not covered" >							if (element == null) {</span>
+<span class="cstat-no" title="statement not covered" >								var customcssLink = document.createElement('link');</span>
+<span class="cstat-no" title="statement not covered" >								customcssLink.setAttribute('rel', 'stylesheet');</span>
+<span class="cstat-no" title="statement not covered" >								customcssLink.setAttribute('type', 'text/css');</span>
+<span class="cstat-no" title="statement not covered" >								customcssLink.setAttribute('id', args[key].id);</span>
+<span class="cstat-no" title="statement not covered" >								customcssLink.setAttribute('href', args[key].url);</span>
+<span class="cstat-no" title="statement not covered" >								customcssLink.setAttribute('media', 'screen');</span>
+<span class="cstat-no" title="statement not covered" >								document.getElementsByTagName('head')[0].appendChild(customcssLink);</span>
+							}
+						}
+					}
+				}
+			}
+		},
+&nbsp;
+		/**
+		 * removes a CSS file from DOM
+		 * @param args
+		 */
+		removeCssFiles: <span class="fstat-no" title="function not covered" >function(args) {</span>
+<span class="cstat-no" title="statement not covered" >			if (args != null) {</span>
+<span class="cstat-no" title="statement not covered" >				for (var key in args) {</span>
+<span class="cstat-no" title="statement not covered" >					if (args.hasOwnProperty(key)) {</span>
+<span class="cstat-no" title="statement not covered" >						if (args[key] != null &amp;&amp; args[key] != '') {</span>
+<span class="cstat-no" title="statement not covered" >							var element = document.getElementById(args[key].id);</span>
+<span class="cstat-no" title="statement not covered" >							if (element != null) {</span>
+<span class="cstat-no" title="statement not covered" >								element.parentNode.removeChild(element);</span>
+							}
+						}
+					}
+				}
+			}
+		},
+&nbsp;
+		/**
+		 * hit server using ARIA implementation of XMLHttpRequest
+		 * @param data JSON object with all the required parameters to form a request.
+		 *        Expected Params:
+		 *                 defaultParams: if true all the default parameters as passed from previous action will be appended to new URL
+		 *				   appendSession: if true then append session id after action, otherwise will not append session
+		 *                 action: name of action,
+		 *                 isCompleteURL: if action passed is complete URL and no additional need to appned domain and protocols etc
+		 *                 method: String value, can be 'GET' or 'POST', default is POST
+		 *                 expectedResponseType: pass as 'json' if expected response is JSON
+		 *                 cb: an ARIA callback object
+		 *                 postData: all parameters concated as string to be passed as POST data
+		 *                 formObj: DOM element object representing a html form
+		 *                 timeout: (Integer) timeout in ms - default: defaultTimeout
+		 * @param submitForm boolean parameter, if set to true then aria.core.IO.asyncFormSubmit will be initiated 
+							otherwise aria.core.IO.asyncRequest will be called
+		 */
+		makeServerRequest: <span class="fstat-no" title="function not covered" >function(data, submitForm, callback) {</span>
+&nbsp;
+			// for callback
+<span class="cstat-no" title="statement not covered" >			var current = this;</span>
+&nbsp;
+			// 'settings' JSON
+<span class="cstat-no" title="statement not covered" >			var settings = {</span>
+				defaultParams: true,
+				isSecured: false,
+				appendSession: true
+			}
+&nbsp;
+			// override defaultParam value if passed
+<span class="cstat-no" title="statement not covered" >			if (data.defaultParams != null) {</span>
+<span class="cstat-no" title="statement not covered" >				settings.defaultParams = data.defaultParams;</span>
+			}
+&nbsp;
+			// override appendSession value if passed
+<span class="cstat-no" title="statement not covered" >			if (data.appendSession != null) {</span>
+<span class="cstat-no" title="statement not covered" >				settings.appendSession = data.appendSession;</span>
+			}
+			// change from http to https
+<span class="cstat-no" title="statement not covered" >			if (data.isSecured != null) {</span>
+<span class="cstat-no" title="statement not covered" >				settings.isSecured = data.isSecured;</span>
+			}
+&nbsp;
+			// create complete URL if not a complete URL
+<span class="cstat-no" title="statement not covered" >			var actionURL = data.action;</span>
+<span class="cstat-no" title="statement not covered" >			if (data.isCompleteURL == null || data.isCompleteURL == false) {</span>
+<span class="cstat-no" title="statement not covered" >				actionURL = this.getFullURL(actionURL, settings);</span>
+			}
+&nbsp;
+			// default method is 'POST'
+<span class="cstat-no" title="statement not covered" >			var method = 'POST';</span>
+<span class="cstat-no" title="statement not covered" >			if (data.method != null) {</span>
+<span class="cstat-no" title="statement not covered" >				method = data.method;</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var params = null;</span>
+			// set form object
+<span class="cstat-no" title="statement not covered" >			if (submitForm == true &amp;&amp; data.formObj != null) {</span>
+<span class="cstat-no" title="statement not covered" >				params = $(data.formObj).serialize();</span>
+<span class="cstat-no" title="statement not covered" >				params.replace('=', ':');</span>
+<span class="cstat-no" title="statement not covered" >				params.replace('&amp;', ',');</span>
+			} else <span class="cstat-no" title="statement not covered" >if (submitForm == false &amp;&amp; data.parameters != null) {</span>
+<span class="cstat-no" title="statement not covered" >				params = data.parameters;</span>
+<span class="cstat-no" title="statement not covered" >				params.replace('=', ':');</span>
+<span class="cstat-no" title="statement not covered" >				params.replace('&amp;', ',');</span>
+			}
+&nbsp;
+			// improve loyality condition before uncommenting, this should not be done via URL manager
+			/*var loyaltyInfo = this.__getLoyaltyInformation();
+			if (loyaltyInfo != null &amp;&amp; loyaltyInfo != '' &amp;&amp; modules.view.merci.common.utils.MCommonScript.booleanValue(data.loyaltyInfoPassed) != true) {
+				params += '&amp;' + loyaltyInfo;
+			}*/
+&nbsp;
+			// send expected response type only if provided
+<span class="cstat-no" title="statement not covered" >			var reqDataType = '';</span>
+<span class="cstat-no" title="statement not covered" >			if (data.expectedResponseType != null) {</span>
+<span class="cstat-no" title="statement not covered" >				reqDataType = data.expectedResponseType;</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (data.loading == true) {</span>
+				// show msk overlay
+<span class="cstat-no" title="statement not covered" >				modules.view.merci.common.utils.MCommonScript.showMskOverlay(true);</span>
+			}
+			
+<span class="cstat-no" title="statement not covered" >			if(modules.view.merci.common.utils.MCommonScript.isRequestFromApps()==true){</span>
+<span class="cstat-no" title="statement not covered" >				if(typeof(currAppVersion) != "undefined"){</span>
+<span class="cstat-no" title="statement not covered" >					if(actionURL.indexOf('?') == -1){</span>
+<span class="cstat-no" title="statement not covered" >						actionURL=actionURL+"?"+"appVersion="+currAppVersion;</span>
+					}else{
+<span class="cstat-no" title="statement not covered" >						actionURL=actionURL+"&amp;appVersion="+currAppVersion;</span>
+					}
+				} 
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var isLoyaltyBannerDataAvailable = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if(!modules.view.merci.common.utils.MCommonScript.isEmptyObject(jsonResponse.data.loyaltyBannerData)){</span>
+<span class="cstat-no" title="statement not covered" >				isLoyaltyBannerDataAvailable = true ;</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var request = {</span>
+				url: actionURL,
+				type: method,
+				processData: false,
+				dataType: 'text',
+				crossDomain: 'true',
+				contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+				success: <span class="fstat-no" title="function not covered" >function(resp) {</span>
+<span class="cstat-no" title="statement not covered" >					var response = {</span>
+						error: '',
+						responseJSON: '',
+						responseText: '',
+						responseXML: null
+					};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (reqDataType == 'json') {</span>
+<span class="cstat-no" title="statement not covered" >						response.responseJSON = resp;</span>
+					} else {
+<span class="cstat-no" title="statement not covered" >						response.responseText = resp;</span>
+					}
+&nbsp;
+					// callback function
+<span class="cstat-no" title="statement not covered" >					current.__onServerRequestCallback(response, data);</span>
+				},
+				error: <span class="fstat-no" title="function not covered" >function(a, b, c, d) {</span>
+					// in case of server error
+<span class="cstat-no" title="statement not covered" >					window.scrollTo(0, 0);</span>
+<span class="cstat-no" title="statement not covered" >					current.__onServerRequestCallback(null, data);</span>
+<span class="cstat-no" title="statement not covered" >					modules.view.merci.common.utils.MCommonScript.hideMskOverlay();</span>
+				}
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (params != null) {</span>
+<span class="cstat-no" title="statement not covered" >				request.data = params;</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (request.data != null) {</span>
+<span class="cstat-no" title="statement not covered" >				request.data += '&amp;BANNER_AVAILABLE='  </span>
+						+  isLoyaltyBannerDataAvailable 
+						+ '&amp;INDEX_DATA_AVAILABLE=' 
+						+ (jsonResponse.data.booking != null &amp;&amp; jsonResponse.data.booking.Mindex_A != null); 
+			}
+			
+<span class="cstat-no" title="statement not covered" >			var externalId = this.__getExternalId();</span>
+<span class="cstat-no" title="statement not covered" >			if (externalId) {</span>
+<span class="cstat-no" title="statement not covered" >				if (request.data  == null || request.data == '') {</span>
+<span class="cstat-no" title="statement not covered" >					request.data = 'EXTERNAL_ID='+ externalId;</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					request.data += '&amp;EXTERNAL_ID='+ externalId;</span>
+ 				}
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (reqDataType != '') {</span>
+<span class="cstat-no" title="statement not covered" >				request.dataType = reqDataType;</span>
+			}
+&nbsp;
+			//console.log("REQUEST === "+JSON.stringify(request));
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			$.ajax(request);</span>
+&nbsp;
+			// keep alive implementation
+<span class="cstat-no" title="statement not covered" >			this.keepExternalAppAlive();</span>
+		},
+&nbsp;
+		/**
+		 * common callback for all server calls
+		 * @param response server response
+		 * @param params parameters passed by calling function to be used in callback
+		 */
+		__onServerRequestCallback: <span class="fstat-no" title="function not covered" >function(response, data) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (response != null &amp;&amp; response.responseJSON != null) {</span>
+&nbsp;
+				// set the framework data
+<span class="cstat-no" title="statement not covered" >				if (response.responseJSON.data != null &amp;&amp; response.responseJSON.data.framework != null) {</span>
+<span class="cstat-no" title="statement not covered" >					jsonResponse.data.framework = response.responseJSON.data.framework;</span>
+				}
+&nbsp;
+				// if same page then hide the overlay
+<span class="cstat-no" title="statement not covered" >				if (response.responseJSON.homePageId == aria.utils.HashManager.getHashString()) {</span>
+<span class="cstat-no" title="statement not covered" >					modules.view.merci.common.utils.MCommonScript.hideMskOverlay();</span>
+				}
+				// update data
+<span class="cstat-no" title="statement not covered" >				for (var key in response.responseJSON.data) {</span>
+<span class="cstat-no" title="statement not covered" >					if (key != 'framework' &amp;&amp; response.responseJSON.data.hasOwnProperty(key)) {</span>
+<span class="cstat-no" title="statement not covered" >						if (jsonResponse.data[key] == null) {</span>
+<span class="cstat-no" title="statement not covered" >							jsonResponse.data[key] = response.responseJSON.data[key];</span>
+						} else {
+<span class="cstat-no" title="statement not covered" >							for (var jKey in response.responseJSON.data[key]) {</span>
+<span class="cstat-no" title="statement not covered" >								if (response.responseJSON.data[key].hasOwnProperty(jKey)) {</span>
+<span class="cstat-no" title="statement not covered" >									jsonResponse.data[key][jKey] = response.responseJSON.data[key][jKey];</span>
+								}
+							}
+						}
+					}
+				}
+				// update menu data
+<span class="cstat-no" title="statement not covered" >				if (response.responseJSON.hasOwnProperty("MenuButtons")) {</span>
+<span class="cstat-no" title="statement not covered" >					jsonResponse["MenuButtons"] = response.responseJSON["MenuButtons"];</span>
+				}	
+&nbsp;
+			}
+			// redirect to template callback
+<span class="cstat-no" title="statement not covered" >			this.moduleCtrl = data.cb.scope.moduleCtrl;</span>
+<span class="cstat-no" title="statement not covered" >			data.cb.scope[this.__getCallbackFunctionName(data.cb)](response, data.cb.args);</span>
+		},
+&nbsp;
+		/**
+		 * returns the name of function passed in callback object
+		 * @param params callback object passed by calling function
+		 */
+		__getCallbackFunctionName: <span class="fstat-no" title="function not covered" >function(params) {</span>
+<span class="cstat-no" title="statement not covered" >			if (params != null) {</span>
+<span class="cstat-no" title="statement not covered" >				var funcName = params.fn.displayName;</span>
+<span class="cstat-no" title="statement not covered" >				if (funcName == null) {</span>
+<span class="cstat-no" title="statement not covered" >					funcName = params.fn;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (funcName != null &amp;&amp; funcName.indexOf('#') != -1) {</span>
+<span class="cstat-no" title="statement not covered" >					funcName = funcName.replace("#", "");</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return funcName;</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return '';</span>
+		},
+		/**
+		 * Adds EXTERNAL_ID param with every request		 
+		 */
+		__getExternalId: <span class="fstat-no" title="function not covered" >function() {</span>
+			// if not in json read from URL
+<span class="cstat-no" title="statement not covered" >			if (jsonResponse.data.framework == null || jsonResponse.data.framework.baseParams == null) {</span>
+<span class="cstat-no" title="statement not covered" >				return this.getStringParam().EXTERNAL_ID;</span>
+			}
+&nbsp;
+			// if available in json
+<span class="cstat-no" title="statement not covered" >			return jsonResponse.data.framework.baseParams[23];</span>
+		}
+	}
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jan 09 2015 11:09:42 GMT+0530 (India Standard Time)</div>
+</div>
+
+<script src="../prettify.js"></script>
+
+<script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+<script>
+
+    YUI().use('datatable', function (Y) {
+
+        var formatters = {
+          pct: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              try {
+                  return o.value.toFixed(2) + '%';
+              } catch (ex) { return o.value + '%'; }
+          },
+          html: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.record.get(o.column.key + '_html');
+          }
+        },
+          defaultFormatter = function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.value;
+          };
+
+        function getColumns(theadNode) {
+            var colNodes = theadNode.all('tr th'),
+                cols = [],
+                col;
+            colNodes.each(function (colNode) {
+                col = {
+                    key: colNode.getAttribute('data-col'),
+                    label: colNode.get('innerHTML') || ' ',
+                    sortable: !colNode.getAttribute('data-nosort'),
+                    className: colNode.getAttribute('class'),
+                    type: colNode.getAttribute('data-type'),
+                    allowHTML: colNode.getAttribute('data-html') === 'true' || colNode.getAttribute('data-fmt') === 'html'
+                };
+                col.formatter = formatters[colNode.getAttribute('data-fmt')] || defaultFormatter;
+                cols.push(col);
+            });
+            return cols;
+        }
+
+        function getRowData(trNode, cols) {
+            var tdNodes = trNode.all('td'),
+                    i,
+                    row = { classes: {} },
+                    node,
+                    name;
+            for (i = 0; i < cols.length; i += 1) {
+                name = cols[i].key;
+                node = tdNodes.item(i);
+                row[name] = node.getAttribute('data-value') || node.get('innerHTML');
+                row[name + '_html'] = node.get('innerHTML');
+                row.classes[name] = node.getAttribute('class');
+                //Y.log('Name: ' + name + '; Value: ' + row[name]);
+                if (cols[i].type === 'number') { row[name] = row[name] * 1; }
+            }
+            //Y.log(row);
+            return row;
+        }
+
+        function getData(tbodyNode, cols) {
+            var data = [];
+            tbodyNode.all('tr').each(function (trNode) {
+                data.push(getRowData(trNode, cols));
+            });
+            return data;
+        }
+
+        function replaceTable(node) {
+            if (!node) { return; }
+            var cols = getColumns(node.one('thead')),
+                data = getData(node.one('tbody'), cols),
+                table,
+                parent = node.get('parentNode');
+
+            table = new Y.DataTable({
+                columns: cols,
+                data: data,
+                sortBy: 'file'
+            });
+            parent.set('innerHTML', '');
+            table.render(parent);
+        }
+
+        Y.on('domready', function () {
+            replaceTable(Y.one('div.coverage-summary table'));
+            if (typeof prettyPrint === 'function') {
+                prettyPrint();
+            }
+        });
+    });
+</script>
+</body>
+</html>

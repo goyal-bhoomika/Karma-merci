@@ -1,0 +1,37 @@
+{
+  "name": "lab-karma-require-mocha-AT",
+  "version": "0.0.0",
+  "description": "A step-by-step lab for setting up a simple JavaScript centric web app using RequireJS, Karma and Jasmine",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.15"
+  },
+  "devDependencies": {
+    "mocha": "~2.0.1",
+    "karma": "~0.12.28",
+    "karma-chrome-launcher": "~0.1.5",
+    "chai": "~1.10.0",
+    "ariatemplates": "1.6.4",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "karma-requirejs": "~0.2.2",
+    "karma-mocha" : "~0.1.9",
+    "karma-chai" : "~0.1.0",
+    "karma-sinon" : "~1.0.4",
+    "karma-jquery" : "~0.1.0",
+    "karma-js-coverage" : "~0.4.0",
+    "grunt-cli" : "~0.1.13",
+    "grunt" : "~0.4.5",
+    "grunt-karma" : "0.9.0",
+    "karma-script-launcher": "~0.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohan",
+  "license": "MIT"
+  
+}

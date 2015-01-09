@@ -1,0 +1,94 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'karma-scripts-launcher',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json lab-karma-require-mocha-AT@0.0.0 No repository field.
+6 warn package.json karma-chrome-launcher@0.1.7 No README data
+7 warn package.json karma-firefox-launcher@0.1.4 No README data
+8 warn package.json karma-phantomjs-launcher@0.1.4 No README data
+9 warn package.json karma-mocha@0.1.10 No README data
+10 verbose readDependencies using package.json deps
+11 verbose cache add [ 'karma-scripts-launcher', null ]
+12 verbose cache add name=undefined spec="karma-scripts-launcher" args=["karma-scripts-launcher",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'karma-scripts-launcher',
+13 verbose parsed url   path: 'karma-scripts-launcher',
+13 verbose parsed url   href: 'karma-scripts-launcher' }
+14 silly lockFile 26333216-karma-scripts-launcher karma-scripts-launcher
+15 verbose lock karma-scripts-launcher C:\Users\bgoyal\AppData\Roaming\npm-cache\26333216-karma-scripts-launcher.lock
+16 silly lockFile 26333216-karma-scripts-launcher karma-scripts-launcher
+17 silly lockFile 26333216-karma-scripts-launcher karma-scripts-launcher
+18 verbose addNamed [ 'karma-scripts-launcher', '' ]
+19 verbose addNamed [ null, '*' ]
+20 silly lockFile 8598cea4-karma-scripts-launcher karma-scripts-launcher@
+21 verbose lock karma-scripts-launcher@ C:\Users\bgoyal\AppData\Roaming\npm-cache\8598cea4-karma-scripts-launcher.lock
+22 silly addNameRange { name: 'karma-scripts-launcher', range: '*', hasData: false }
+23 verbose request where is /karma-scripts-launcher
+24 verbose request registry https://registry.npmjs.org/
+25 verbose request id 4bc570990f140018
+26 verbose url raw /karma-scripts-launcher
+27 verbose url resolving [ 'https://registry.npmjs.org/', './karma-scripts-launcher' ]
+28 verbose url resolved https://registry.npmjs.org/karma-scripts-launcher
+29 verbose request where is https://registry.npmjs.org/karma-scripts-launcher
+30 info trying registry request attempt 1 at 19:32:57
+31 http GET https://registry.npmjs.org/karma-scripts-launcher
+32 http 404 https://registry.npmjs.org/karma-scripts-launcher
+33 verbose headers { date: 'Thu, 08 Jan 2015 14:02:58 GMT',
+33 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+33 verbose headers   'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=0',
+33 verbose headers   'content-length': '52',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   age: '0',
+33 verbose headers   'x-served-by': 'cache-fra1221-FRA',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1420725778.541264,VS0,VE182',
+33 verbose headers   'keep-alive': 'timeout=10, max=50',
+33 verbose headers   connection: 'Keep-Alive' }
+34 silly registry.get cb [ 404,
+34 silly registry.get   { date: 'Thu, 08 Jan 2015 14:02:58 GMT',
+34 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+34 silly registry.get     'content-type': 'application/json',
+34 silly registry.get     'cache-control': 'max-age=0',
+34 silly registry.get     'content-length': '52',
+34 silly registry.get     'accept-ranges': 'bytes',
+34 silly registry.get     via: '1.1 varnish',
+34 silly registry.get     age: '0',
+34 silly registry.get     'x-served-by': 'cache-fra1221-FRA',
+34 silly registry.get     'x-cache': 'MISS',
+34 silly registry.get     'x-cache-hits': '0',
+34 silly registry.get     'x-timer': 'S1420725778.541264,VS0,VE182',
+34 silly registry.get     'keep-alive': 'timeout=10, max=50',
+34 silly registry.get     connection: 'Keep-Alive' } ]
+35 silly lockFile 8598cea4-karma-scripts-launcher karma-scripts-launcher@
+36 silly lockFile 8598cea4-karma-scripts-launcher karma-scripts-launcher@
+37 error 404 404 Not Found: karma-scripts-launcher
+37 error 404
+37 error 404 'karma-scripts-launcher' is not in the npm registry.
+37 error 404 You should bug the author to publish it
+37 error 404 It was specified as a dependency of 'lab-karma-require-mocha-AT'
+37 error 404
+37 error 404 Note that you can also install from a
+37 error 404 tarball, folder, or http url, or git url.
+38 error System Windows_NT 6.1.7601
+39 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "karma-scripts-launcher" "--save-dev"
+40 error cwd D:\jdevcc\merci_v22.0_int_2\mob1109_merci\merci_core\modules\merci_at\src\main
+41 error node -v v0.10.35
+42 error npm -v 1.4.28
+43 error code E404
+44 verbose exit [ 1, true ]

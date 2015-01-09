@@ -1,0 +1,4 @@
+[{
+    "name" : "app.js",
+    "files" : ["src/templates/**/*","src/classes/**/*", "!src/**/*.png"]
+}]
