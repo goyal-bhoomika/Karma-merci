@@ -1,33 +1,40 @@
 
-#                     Karma Set up
+# Karma Set up
 
 
 1.	Install nodejs - Download the 64bit installer and follow the default installation path. Installation is usually uneventful.
 
 2.	If you get the error “"Error: ENOENT, stat C:\Users\<username>\AppData\Roaming\npm" , manually create the folder called “npm” at the end of the path.
 
-3.	Fork or Clone the project from gitstash
-Create a new directory and change to that directory
+3.Open cmd and reach the directory domains\<domain name>\web\plnext\default\dev-version_merci\static\merciAT   
+     Choose the domain in which you want to work.
+     Run the following command.
+     git clone https://github.com/goyal-bhoomika/Karma-merci.git
 
-	3a. If you are planning to contribute, run the below command
-    
-    ```
-       git clone http://<username>@rndwww.nce.amadeus.net/git/scm/~<username>/karma-example.git
-    ```
-	
-	3b. If you are just want to see it working, run the below command
-        
-    ```
-        git clone http://<username>@rndwww.nce.amadeus.net/git/scm/merci/karma-example.git 
-    ```
- 
+4. Go to the path domains\<domain name>\web\plnext\default\dev-version_merci\static\merciAT  
+  
+5.You will notice follwing new files:
+  Folders: .git, aria,buildm,coverage,karma-example,node_modules,test
+  Files: .gitattributes,.gitignore, Gruntfile.js, karma.conf.js, npm-debug.log, package.json, README.cmd, test-main.js
 
-4.  Change dir to karma-example and run `npm update`
-It will install the needed dependencies , it should complete with out any errors
- 
-5.	Run the command `karma start` , the configured browser (chrome) should open and you should see the results in the command line interface (CLI). For the debug mode, run as `karma start --debug`
+6.Open karma.conf.js :
+  Search for Under the files: [ , you will find the following lines.
+  'debug/modules/view/merci/common/utils/MerciGA.js',
+  'debug/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/CheckInNewScript.js',
 
-6.   With grunt integeration, you can run as `grunt` 
+  You should replace these with the path of the files whose test cases you will be working on.(Make sure the path start from debug).
+
+7.  Open cmd. Change dir to karma-example and run `npm update`
+It will install the needed dependencies , it should complete with out any errors.
+
+8.Open test folder. You will find some test files there.
+Make a new file for the page you will be working on and save there.
+
+9.	Run the command `karma start` , the configured browser (chrome) should open and you should see the results in the command line interface (CLI). For the debug mode, run as `karma start --debug`
+
+10.   With grunt integeration, you can run as `grunt`.
+
+11.If you are totally new to Karma, go through karma-example folder in order to understand it better.
 
 
 ##                      TO DO Items

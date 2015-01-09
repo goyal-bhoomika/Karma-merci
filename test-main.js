@@ -20,7 +20,7 @@ require.config({
   // Karma serves files under /base, which is the basePath from your config file
   // note we are using base/src to ensure that modules are defined relative to the same path
   // for both main.js and test-main.js requireJS bootstraps
-  baseUrl: '/base/static',
+  baseUrl: '/base/debug',
   
   paths: {
     'jquery': '../node_modules/jquery/dist/jquery',

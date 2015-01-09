@@ -32,8 +32,8 @@ module.exports = function(config) {
       'node_modules/karma-jquery/jquery/jquery-2.1.0.js',
 
       {pattern:'aria/ariatemplates-1.6.4.js',watched: false},
-      'static/modules/view/merci/common/utils/MerciGA.js',
-      'static/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/CheckInNewScript.js',
+      'debug/modules/view/merci/common/utils/MerciGA.js',
+      'debug/modules/view/merci/segments/servicing/subModules/checkin/ssci/templates/pages/CheckInNewScript.js',
 
       // Very important the templates just need to be watched MUST NOT be served
      // {pattern: 'static/**/*.tpl', watched: true, included: false, served: false}, 
@@ -57,8 +57,8 @@ module.exports = function(config) {
       // (these files will be instrumented by Istanbul)
      // 'test/!(test*).js': ['coverage']
      //'src/**/*.js': ['coverage']
-     'static/**/*.tpl': ['ariatemplate'],
-     'static/**/*.js': sourcePreprocessors
+     'debug/**/*.tpl': ['ariatemplate'],
+     'debug/**/*.js': sourcePreprocessors
     },
 
 

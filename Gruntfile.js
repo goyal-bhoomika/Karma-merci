@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('ariatemplates');
     grunt.config.set('easypackage.one', {
         options : {
-            sourceDirectories : [__dirname +'/static'],
+            sourceDirectories : [__dirname +'/debug'],
             minify : false,
             clean : false,
             outputDirectory : __dirname +'/target',
